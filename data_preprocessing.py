@@ -6,8 +6,8 @@ import math
 import warnings
 warnings.filterwarnings("ignore")
 
-def data_loader(include_pheno, threshold_year):
-    data_dir =Path(os.path.abspath('c:\\Users\\erika\\Desktop\\Exjobb\\data'))
+def data_loader(include_pheno, threshold_year,path):
+    data_dir =Path(os.path.abspath(path))
     os.chdir(data_dir)
     NCBI_raw = pd.read_csv('gendata.tsv',sep='\t',header=0,low_memory=False)
 
@@ -49,6 +49,8 @@ def data_loader(include_pheno, threshold_year):
     NCBI.loc[:,'location'] = NCBI['location'].replace(
         {'United Kingdom': 'UK', 'United Arab Emirates': 'UAE', 'Democratic Republic of the Congo': 'DRC',
          'Republic of the Congo': 'DRC', 'Czechia': 'Czech Republic', 'France and Algeria': 'France'})
+    
+    NCBI.fillna("[PAD]", inplace=True)
     return NCBI
 
 
