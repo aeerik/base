@@ -1,11 +1,8 @@
 import pandas as pd
-import os
 import numpy as np
 from pathlib import Path
-import math
 import torch
 from copy import deepcopy
-from itertools import chain
 from torch.utils.data import Dataset
 from torchtext.vocab import vocab
 
@@ -83,17 +80,11 @@ class NCBIDataset(Dataset):
             target_indices = [-1]*3 + target_indices.tolist() 
             masked_sequences.append(geno_seq)
             target_indices_list.append(target_indices)
-        print('här är lugnt')
-        print(masked_sequences[:20])
-        print(target_indices_list[:20])
         masked_sequences = [seq + [self.PAD]*(self.max_seq_len - len(seq)) for seq in masked_sequences]
-        print(masked_sequences[:20])
-        print(range(len(target_indices_list)))
         for i in range(len(target_indices_list)):
             indices = target_indices_list[i]
             padding = [-1] * (self.max_seq_len - len(indices))
             target_indices_list[i] = indices + padding
-        print('hit men inte längre ')
         return masked_sequences, target_indices_list 
         
     def prepare_dataset(self):
