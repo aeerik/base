@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore")
 def data_loader(include_pheno, threshold_year,path):
     data_dir =Path(os.path.abspath(path))
     os.chdir(data_dir)
-    NCBI_raw = pd.read_csv('gendata.tsv',sep='\t',header=0,low_memory=False)
+    NCBI_raw = pd.read_csv('NCBI.tsv',sep='\t',header=0,low_memory=False)
 
     selected_data = ['collection_date', 'geo_loc_name', 'AMR_genotypes_core']
     selected_data += ['AST_phenotypes'] if include_pheno else []
