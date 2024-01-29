@@ -93,4 +93,3 @@ class NCBIDataset(Dataset):
 
         rows = zip(indices_masked, target_indices)
         self.data = pd.DataFrame(rows, columns=self.columns)
-        print(self.data.head())

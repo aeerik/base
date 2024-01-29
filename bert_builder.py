@@ -19,12 +19,12 @@ class AttentionHead(nn.Module):
         query, key, value = self.q(input_tensor), self.k(input_tensor), self.v(input_tensor)
 
         scale = query.size(1) ** 0.5
-        scores = torch.bmm(query, key.transpose(1, 2)) / scale
+        scores = torch.matmul(query, key.transpose(-1, -2)) / scale
 
         scores = scores.masked_fill_(attention_mask, -1e9)
         attn = f.softmax(scores, dim=-1)
         attn = self.dropout(attn)
-        context = torch.bmm(attn, value)
+        context = torch.matmul(attn, value)
 
         return context
 
