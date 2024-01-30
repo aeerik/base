@@ -28,13 +28,14 @@ class AttentionHead(nn.Module):
 
         return context
 
+
 class MultiHeadAttention(nn.Module):
 
-    def __init__(self, num_heads, dim_inp, dim_out):
+    def __init__(self, num_heads, dim_inp, dim_out, drop_prob):
         super(MultiHeadAttention, self).__init__()
 
         self.heads = nn.ModuleList([
-            AttentionHead(dim_inp, dim_out) for _ in range(num_heads)
+            AttentionHead(dim_inp, dim_out,drop_prob) for _ in range(num_heads)
         ])
         self.linear = nn.Linear(dim_out * num_heads, dim_inp)
         self.norm = nn.LayerNorm(dim_inp)
@@ -44,3 +45,28 @@ class MultiHeadAttention(nn.Module):
         scores = torch.cat(s, dim=-1)
         scores = self.linear(scores)
         return self.norm(scores)
+    
+class Encoder(nn.Module):
+
+    def __init__(self, dim_inp, dim_out, attention_heads, dropout_prob):
+        super(Encoder, self).__init__()
+        self.dropout_prob = dropout_prob
+        self.attention_heads = attention_heads
+        self.dim_inp = dim_inp
+        self.dim_out = dim_out
+        
+        
+        self.attention = MultiHeadAttention(self.attention_heads, self.dim_inp, self.dim_out, self.dropout_prob)  # batch_size x sentence size x dim_inp
+        self.feed_forward = nn.Sequential(
+            nn.Linear(self.dim_inp, self.dim_out),
+            nn.Dropout(self.dropout_prob),
+            nn.GELU(),
+            nn.Linear(self.dim_out, self.dim_inp),
+            nn.Dropout(self.dropout_prob)
+        )
+        self.norm = nn.LayerNorm(self.dim_inp)
+
+    def forward(self, input_tensor: torch.Tensor, attention_mask: torch.Tensor):
+        context = self.attention(input_tensor, attention_mask)
+        res = self.feed_forward(context)
+        return self.norm(res)
