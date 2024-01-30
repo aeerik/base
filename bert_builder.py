@@ -28,7 +28,6 @@ class AttentionHead(nn.Module):
 
         return context
 
-
 class MultiHeadAttention(nn.Module):
 
     def __init__(self, num_heads, dim_inp, dim_out):
