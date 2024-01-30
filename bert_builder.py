@@ -2,6 +2,8 @@ import torch
 
 from torch import nn
 import torch.nn.functional as f
+from embedding import JointEmbedding
+
 
 class AttentionHead(nn.Module):
 
@@ -70,3 +72,30 @@ class Encoder(nn.Module):
         context = self.attention(input_tensor, attention_mask)
         res = self.feed_forward(context)
         return self.norm(res)
+    
+class BERT(nn.Module):
+
+    def __init__(self, vocab_size, max_length, dim_inp, dim_out, attention_heads, num_encoders, dropout_prob):
+        super(BERT, self).__init__()
+        self.attention_heads = attention_heads
+        self.max_length = max_length
+        self.vocab_size = vocab_size
+        self.dim_inp = dim_inp  
+        self.dim_out = dim_out
+        self.num_encoders = num_encoders
+        self.dropout_prob = dropout_prob  
+
+        self.embedding = JointEmbedding(self.dim_inp, self.vocab_size, self.max_length, self.dropout_prob)
+        self.encoders = nn.ModuleList([Encoder(self.dim_inp, self.dim_out, self.attention_heads, self.dropout_prob) for _ in range(self.num_encoders)])
+
+        self.token_prediction_layer = nn.Linear(self.dim_inp, self.vocab_size)
+        self.softmax = nn.LogSoftmax(dim=-1)
+
+    def forward(self, input_tensor: torch.Tensor, attention_mask: torch.Tensor):
+        embedded = self.embedding(input_tensor)
+        for layer in self.encoders:
+            embedded = layer(embedded, attention_mask)
+
+        token_predictions = self.token_prediction_layer(embedded)
+
+        return self.softmax(token_predictions)
