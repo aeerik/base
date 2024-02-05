@@ -51,7 +51,7 @@ class NCBIDataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, idx):
-        item = self.data.iloc[idx]
+        item = self.df.iloc[idx]
         input = torch.Tensor(item[self.MASKED_INDICES_COLUMN],device=device).long()
         token_mask  = torch.tensor(item[self.TARGET_COLUMN], device=device).long()
         attention_mask = (input == self.vocab[self.PAD]).unsqueeze(0)
@@ -92,4 +92,4 @@ class NCBIDataset(Dataset):
         indices_masked = [self.vocab.lookup_indices(masked_seq) for masked_seq in masked_sequences]
 
         rows = zip(indices_masked, target_indices)
-        self.data = pd.DataFrame(rows, columns=self.columns)
+        self.df = pd.DataFrame(rows, columns=self.columns)
