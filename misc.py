@@ -1,4 +1,5 @@
 import numpy as np
+import pickle
 def get_split_indices(size_to_split, val_share, random_state: int = 42):
     indices = np.arange(size_to_split)
     np.random.seed(random_state)
@@ -12,3 +13,8 @@ def get_split_indices(size_to_split, val_share, random_state: int = 42):
     val_indices = indices[train_size:]
     
     return train_indices, val_indices
+
+def export_results(results, savepath):
+    with open(savepath, 'wb') as f:
+        pickle.dump(results, f)
+    print(f"Results saved to {savepath}")

@@ -46,7 +46,7 @@ class BertTrainer:
             
             #Validation
             print("Evaluating on validation set...")
-            val_results = self.evaluate(self.val_loader, self.val_set)
+            val_results = self.evaluate(self.val_loader)
             print(f"Elapsed time: {time.strftime('%H:%M:%S', time.gmtime(time.time() - start_time))}")
             self.val_losses.append(val_results[0])  
             self.val_accs.append(val_results[1])
