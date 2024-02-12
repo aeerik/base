@@ -50,8 +50,14 @@ def data_loader(include_pheno, threshold_year,path):
         {'United Kingdom': 'UK', 'United Arab Emirates': 'UAE', 'Democratic Republic of the Congo': 'DRC',
          'Republic of the Congo': 'DRC', 'Czechia': 'Czech Republic', 'France and Algeria': 'France'})
     
+    #phenotype 
+    if include_pheno:
+        labels = ['=ND', '=I']
+        NCBI = NCBI[NCBI['AST_phenotypes'].notnull()]
+        NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].str.split(',')
+        NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: list(set([g.strip() for g in x])) if isinstance(x, list) else [])
+        NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: [g for g in x if not g.endswith(tuple(labels))] if isinstance(x, list) else [])
+        NCBI = NCBI[NCBI['AST_phenotypes'].apply(lambda x: len(x) > 0)]
+
     NCBI.fillna("[PAD]", inplace=True)
     return NCBI
-
-
-
