@@ -7,7 +7,7 @@ from torchtext.vocab import vocab
 
 
 
-def make_vocabulary(dataset: pd.DataFrame):
+def make_vocabulary(dataset: pd.DataFrame, include_pheno):
     CLS = '[CLS]'
     PAD = '[PAD]'
     MASK = '[MASK]'
@@ -19,9 +19,15 @@ def make_vocabulary(dataset: pd.DataFrame):
     location_tokens = list(dict.fromkeys(list(chain(list(data['location'])))))
     year_tokens = list(dict.fromkeys(list(chain(list(data['year'])))))
     genes_tokens = list(dict.fromkeys(list(chain(*data['genes']))))
+    if include_pheno:
+        pheno_tokens = list(dict.fromkeys(list(chain(*data['AST_phenotypes']))))
+
    
     token_list.update(map(str, year_tokens))
     token_list.update(map(str, location_tokens))
     token_list.update(map(str, genes_tokens))
+    
+    if include_pheno:
+        token_list.update(map(str, pheno_tokens))
     vocabulary = vocab(token_list,specials = [CLS, PAD, MASK, UNK])
     return vocabulary
