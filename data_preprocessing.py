@@ -6,8 +6,8 @@ import math
 import warnings
 warnings.filterwarnings("ignore")
 
-def data_loader(include_pheno, threshold_year,path):
-    data_dir =Path(os.path.abspath(path))
+def data_loader(include_pheno, threshold_year,data_path,ab_path):
+    data_dir =Path(os.path.abspath(data_path))
     os.chdir(data_dir)
     NCBI_raw = pd.read_csv('NCBI.tsv',sep='\t',header=0,low_memory=False)
 
@@ -60,4 +60,10 @@ def data_loader(include_pheno, threshold_year,path):
         NCBI = NCBI[NCBI['AST_phenotypes'].apply(lambda x: len(x) > 0)]
 
     NCBI.fillna("[PAD]", inplace=True)
-    return NCBI
+
+    ab_dir =Path(os.path.abspath(ab_path))
+    os.chdir(ab_dir)
+    ab_list = open("antibiotic_list.txt","r")
+    ab_list = ab_list.read().splitlines()
+    ab_df = pd.DataFrame(ab_list, columns = ['antibiotic'])
+    return NCBI, ab_df

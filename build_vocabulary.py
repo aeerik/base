@@ -7,7 +7,7 @@ from torchtext.vocab import vocab
 
 
 
-def make_vocabulary(dataset: pd.DataFrame, include_pheno):
+def vocab_geno(dataset: pd.DataFrame, include_pheno):
     CLS = '[CLS]'
     PAD = '[PAD]'
     MASK = '[MASK]'
@@ -30,4 +30,16 @@ def make_vocabulary(dataset: pd.DataFrame, include_pheno):
     if include_pheno:
         token_list.update(map(str, pheno_tokens))
     vocabulary = vocab(token_list,specials = [CLS, PAD, MASK, UNK])
+    return vocabulary
+
+def vocab_pheno(dataset: pd.DataFrame):
+
+    token_list = Counter()
+    data = dataset.copy()
+
+    pheno_tokens = list(dict.fromkeys(list(chain(list(data['antibiotic'])))))
+
+    token_list.update(map(str, pheno_tokens))
+    
+    vocabulary = vocab(token_list)
     return vocabulary
