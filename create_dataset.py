@@ -148,12 +148,9 @@ class NCBIDataset(Dataset):
         return masked_sequences, target_indices_list 
         
     def prepare_dataset(self):
-        if self.include_pheno:
-            masked_sequences, target_indices = self._construct_masking_pheno()
-            indices_masked = [self.vocab.lookup_indices(masked_seq) for masked_seq in masked_sequences]
-        else:
-            masked_sequences, target_indices = self._construct_masking_geno()
-            indices_masked = [self.vocab.lookup_indices(masked_seq) for masked_seq in masked_sequences]
+
+        masked_sequences, target_indices = self._construct_masking_geno()
+        indices_masked = [self.vocab.lookup_indices(masked_seq) for masked_seq in masked_sequences]
 
         rows = zip(indices_masked, target_indices)
         self.df = pd.DataFrame(rows, columns=self.columns)
