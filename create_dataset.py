@@ -16,12 +16,14 @@ class NCBIDataset(Dataset):
 
     MASKED_INDICES_COLUMN = 'masked_indices'
     TARGET_COLUMN = 'indices'
-    NSP_TARGET_COLUMN = 'is_next'
     TOKEN_MASK_COLUMN = 'token_mask'
+    AB_INDEX = 'ab_index'
+    SR_CLASS = 'sr_class'
 
     def __init__(self,
                  data: pd.DataFrame,
-                 vocab: vocab,
+                 vocab_geno: vocab,
+                 vocab_pheno: vocab,
                  max_seq_len: list,
                  mask_prob: float,
                  include_pheno:bool,
@@ -36,18 +38,22 @@ class NCBIDataset(Dataset):
         MASK = '[MASK]'
         UNK = '[UNK]'
 
+        self.include_pheno = include_pheno
         self.data = data.reset_index(drop=True) 
         self.num_samples = self.data.shape[0]
-        self.vocab = vocab
-        self.vocab_size = len(self.vocab)
+        self.vocab_geno = vocab_geno
+        self.vocab_pheno = vocab_pheno
+        self.vocab_size_geno = len(self.vocab_geno)
         self.CLS = CLS 
         self.PAD = PAD
         self.MASK = MASK
         self.UNK = UNK
         self.max_seq_len = max_seq_len
         self.mask_prob = mask_prob
-        self.columns = [self.MASKED_INDICES_COLUMN, self.TARGET_COLUMN]
-        self.include_pheno = include_pheno
+        if self.include_pheno:
+            self.columns = [self.MASKED_INDICES_COLUMN, self.TARGET_COLUMN, self.AB_INDEX, self.SR_CLASS]
+        else:
+            self.columns = [self.MASKED_INDICES_COLUMN, self.TARGET_COLUMN]
 
     def __len__(self):
         return len(self.data)
@@ -56,14 +62,19 @@ class NCBIDataset(Dataset):
         item = self.df.iloc[idx]
         input = torch.Tensor(item[self.MASKED_INDICES_COLUMN],device=device).long()
         token_mask  = torch.tensor(item[self.TARGET_COLUMN], device=device).long()
-        attention_mask = (input == self.vocab[self.PAD]).unsqueeze(0)
+        attention_mask = (input == self.vocab_geno[self.PAD]).unsqueeze(0)
+        
+        if self.include_pheno:
+            ab_idx  = torch.tensor(item[self.AB_INDEX], device=device).long()
+            sr_class = torch.tensor(item[self.SR_CLASS], device=device).long()
+            return input, token_mask , attention_mask, ab_idx, sr_class
+        else:
+            return input, token_mask , attention_mask
 
-        return input, token_mask , attention_mask
-
-    def _construct_masking_geno(self):
+    def _construct_masking(self):
         sequences = deepcopy(self.data['genes'].tolist())
-        masked_sequences = list()
-        target_indices_list = list()
+        masked_sequences = []
+        target_indices_list = []
         seq_starts = [[self.CLS, self.data['year'].iloc[i], self.data['location'].iloc[i]] for i in range(self.data.shape[0])]
 
         for i, geno_seq in enumerate(sequences):
@@ -71,13 +82,13 @@ class NCBIDataset(Dataset):
             masking_index = np.random.rand(seq_len) < self.mask_prob   
             target_indices = np.array([-1]*seq_len)
             indices = masking_index.nonzero()[0]
-            target_indices[indices] = self.vocab.lookup_indices([geno_seq[i] for i in indices])
+            target_indices[indices] = self.vocab_geno.lookup_indices([geno_seq[i] for i in indices])
             for i in indices:
                 r = np.random.rand()
                 if r < 0.8:
                     geno_seq[i] = self.MASK
                 elif r > 0.9:
-                    geno_seq[i] = self.vocab.lookup_token(np.random.randint(self.vocab_size))
+                    geno_seq[i] = self.vocab_geno.lookup_token(np.random.randint(self.vocab_size_geno))
             geno_seq = seq_starts[i] + geno_seq
             target_indices = [-1]*3 + target_indices.tolist() 
             masked_sequences.append(geno_seq)
@@ -89,68 +100,42 @@ class NCBIDataset(Dataset):
             target_indices_list[i] = indices + padding
         return masked_sequences, target_indices_list 
     
+    def _Ab_SR_indexing(self):
+        sequences = deepcopy(self.data['AST_phenotypes'].tolist())
+        list_idx = []
+        list_SR = []
+        for i in range(len(sequences)):
+            current_seq = sequences[i]
+            current_idxs = []
+            current_SRs = []
+            for j in range(len(current_seq)):
+                item = current_seq[j].split('=')
+                abs = item[0]   
+                sr = item[1]
+                current_idxs.append(self.vocab_pheno.lookup_indices([abs]))
+                for k in range(len(sr)):
+                    if sr == 'R':
+                        current_SRs.append(1)
+                    else:
+                        current_SRs.append(0)
+            current_idxs = [int(item[0]) for item in current_idxs]
+            for i in range(0,max_length[1] - len(current_idxs)):
+                current_idxs.append(-1)
+            for i in range(0,max_length[1] - len(current_SRs)):
+                current_SRs.append(-1)
+            list_idx.append(current_idxs)
+            list_SR.append(current_SRs)
+        return list_idx, list_SR
     
-    def _construct_masking_pheno(self):
-        sequences = [(gene, pheno) for gene, pheno in zip(self.data['genes'].tolist(), self.data['AST_phenotypes'].tolist())]
-
-        # Deepcopy the list of tuples
-        sequences_deepcopy = deepcopy(sequences)
-        masked_sequences = list()
-        target_indices_list = list()
-        seq_starts = [[self.CLS, self.data['year'].iloc[i], self.data['location'].iloc[i]] for i in range(self.data.shape[0])]
-
-        for i, info_seq in enumerate(sequences_deepcopy):
-            geno_len = len(info_seq[0])
-            pheno_len = len(info_seq[1])
-
-            masking_index_geno = np.random.rand(geno_len) < self.mask_prob
-            masking_index_pheno = np.random.rand(pheno_len) < self.mask_prob
-
-            target_indices_geno = np.array([-1]*geno_len)
-            target_indices_pheno = np.array([-1]*pheno_len)
-
-            indices_geno = masking_index_geno.nonzero()[0]
-            indices_pheno = masking_index_pheno.nonzero()[0]
-
-            target_indices_geno[indices_geno] = self.vocab.lookup_indices([info_seq[0][i] for i in indices_geno])
-            target_indices_pheno[indices_pheno] = self.vocab.lookup_indices([info_seq[1][i] for i in indices_pheno])
-
-            for i in indices_geno:
-                r = np.random.rand()
-                if r < 0.8:
-                    info_seq[0][i] = self.MASK
-                elif r > 0.9:
-                    info_seq[0][i] = self.vocab.lookup_token(np.random.randint(self.vocab_size))
-            
-            for i in indices_pheno:
-                r = np.random.rand()
-                if r < 0.8:
-                    info_seq[1][i] = self.MASK
-                elif r > 0.9:
-                    info_seq[1][i] = self.vocab.lookup_token(np.random.randint(self.vocab_size))
-            geno_seq_pad = info_seq[0]+ [self.PAD]*(self.max_seq_len[1] - geno_len)
-            pheno_seq_pad = info_seq[1]+ [self.PAD]*(self.max_seq_len[2] - pheno_len)
-            seq = seq_starts[i] + geno_seq_pad +pheno_seq_pad
-
-            target_indices_geno =  target_indices_geno.tolist()
-            padding = [-1] * (self.max_seq_len[1] - geno_len)
-            target_indices_geno = target_indices_geno + padding
-
-            target_indices_pheno =  target_indices_pheno.tolist()
-            padding = [-1] * (self.max_seq_len[2] - pheno_len)
-            target_indices_pheno = target_indices_pheno + padding
-
-            target_indices = [-1]*3 + target_indices_geno + target_indices_pheno
-            
-            masked_sequences.append(seq)
-            target_indices_list.append(target_indices)
-        
-        return masked_sequences, target_indices_list 
-        
     def prepare_dataset(self):
+        masked_sequences, target_indices = self._construct_masking()
+        indices_masked = [self.vocab_geno.lookup_indices(masked_seq) for masked_seq in masked_sequences]
+        if self.include_pheno:
+            list_idx, list_SR = self._Ab_SR_indexing()
 
-        masked_sequences, target_indices = self._construct_masking_geno()
-        indices_masked = [self.vocab.lookup_indices(masked_seq) for masked_seq in masked_sequences]
-
-        rows = zip(indices_masked, target_indices)
-        self.df = pd.DataFrame(rows, columns=self.columns)
+        if self.include_pheno:
+            rows = zip(indices_masked, target_indices, list_idx, list_SR)
+            self.df = pd.DataFrame(rows, columns=self.columns)
+        else:
+            rows = zip(indices_masked, target_indices)
+            self.df = pd.DataFrame(rows, columns=self.columns)
