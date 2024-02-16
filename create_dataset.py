@@ -119,9 +119,9 @@ class NCBIDataset(Dataset):
                     else:
                         current_SRs.append(0)
             current_idxs = [int(item[0]) for item in current_idxs]
-            for i in range(0,max_length[1] - len(current_idxs)):
+            for i in range(0,self.max_seq_len[1] - len(current_idxs)):
                 current_idxs.append(-1)
-            for i in range(0,max_length[1] - len(current_SRs)):
+            for i in range(0,self.max_seq_len[1] - len(current_SRs)):
                 current_SRs.append(-1)
             list_idx.append(current_idxs)
             list_SR.append(current_SRs)
