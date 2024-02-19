@@ -138,6 +138,18 @@ class BERT_ft(nn.Module):
         token_predictions = self.softmax(token_predictions)
 
         return token_predictions, resistance_predictions 
+    
+    def exclude_networks(self, inclusion_list: list):
+        indices_to_freeze = [i for i in range(len(self.BC)) if i not in inclusion_list]
+        for i, network in enumerate(self.BC):
+            if i in indices_to_freeze:
+                for param in network.parameters():
+                    param.requires_grad = False
+
+    def reset_exclusion(self):
+        for network in self.BC:
+            for param in network.parameters():
+                param.requires_grad = True
 
 class BC_Ab(nn.Module): 
     def __init__(self, emb_dim: int, hidden_dim: int):
