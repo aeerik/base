@@ -5,7 +5,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 
 
-class BertTrainer:
+class BertTrainer_pt:
     def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, results_dir):
         
         self.model = model

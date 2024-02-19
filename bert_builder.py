@@ -45,6 +45,7 @@ class MultiHeadAttention(nn.Module):
         scores = torch.cat(s, dim=-1)
         scores = self.linear(scores)
         return self.norm(scores)
+
 class resEncoder(nn.Module):
 
     def __init__(self, dim_embedding, attention_heads, dropout_prob):
@@ -108,7 +109,7 @@ class BERT_pt(nn.Module):
 
 class BERT_ft(nn.Module):
 
-    def __init__(self, vocab_size, max_length, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab):
+    def __init__(self, vocab_size, max_length, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab, device):
         super(BERT_ft, self).__init__()
         self.attention_heads = attention_heads
         self.max_length = max_length
@@ -120,7 +121,8 @@ class BERT_ft(nn.Module):
 
         self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.max_length, self.dropout_prob)
         self.encoders = nn.ModuleList([resEncoder(self.dim_embedding, self.attention_heads, self.dropout_prob) for _ in range(self.num_encoders)])
-
+        self.token_prediction_layer = nn.Linear(self.dim_embedding, self.vocab_size)
+        self.softmax = nn.LogSoftmax(dim=-1)
         
         self.softmax = nn.LogSoftmax(dim=-1)
         self.BC = [BC_Ab(self.dim_embedding, self.dim_hidden).to(device) for _ in range(num_ab)]
@@ -132,7 +134,10 @@ class BERT_ft(nn.Module):
         
         cls_tokens = embedded[:, 0, :]
         resistance_predictions = torch.cat([network(cls_tokens) for network in self.BC], dim=1)
-        return resistance_predictions 
+        token_predictions = self.token_prediction_layer(embedded)
+        token_predictions = self.softmax(token_predictions)
+
+        return token_predictions, resistance_predictions 
 
 class BC_Ab(nn.Module): 
     def __init__(self, emb_dim: int, hidden_dim: int):
