@@ -1,0 +1,20 @@
+2024-02-26 09:34:10,468 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-26 09:34:10,468 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Configure stats pid to 11948
+2024-02-26 09:34:10,468 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Loading settings from C:\Users\erikw\.config\wandb\settings
+2024-02-26 09:34:10,468 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Loading settings from c:\Users\erikw\Desktop\Exjobb kod\base\wandb\settings
+2024-02-26 09:34:10,469 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-26 09:34:10,469 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-26 09:34:10,469 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-02-26 09:34:10,470 INFO    MainThread:11948 [wandb_init.py:_log_setup():526] Logging user logs to c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_093410-tvejcc2l\logs\debug.log
+2024-02-26 09:34:10,470 INFO    MainThread:11948 [wandb_init.py:_log_setup():527] Logging internal logs to c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_093410-tvejcc2l\logs\debug-internal.log
+2024-02-26 09:34:10,470 INFO    MainThread:11948 [wandb_init.py:init():566] calling init triggers
+2024-02-26 09:34:10,470 INFO    MainThread:11948 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'epochs': 30, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 2, 'emb_dim': 128, 'ff_dim': 128, 'lr': 0.0001, 'weight_decay': 0.1, 'max_seq_len': 51, 'vocab_size': 475, 'num_parameters': 1277915}
+2024-02-26 09:34:10,470 INFO    MainThread:11948 [wandb_init.py:init():591] re-initializing run, found existing run on stack: u9d1xn4x
+2024-02-26 09:34:10,472 INFO    MainThread:11948 [wandb_run.py:_finish():1970] finishing run strompfel/Trial_runs/u9d1xn4x
+2024-02-26 09:34:10,473 ERROR   MainThread:11948 [jupyter.py:save_history():437] Run pip install nbformat to save notebook history
+2024-02-26 09:34:10,473 INFO    MainThread:11948 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-02-26 09:34:10,473 INFO    MainThread:11948 [wandb_init.py:_jupyter_teardown():454] cleaning up jupyter logic
+2024-02-26 09:34:10,473 INFO    MainThread:11948 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-02-26 09:34:10,474 INFO    MainThread:11948 [wandb_run.py:_restore():2193] restore
+2024-02-26 09:34:10,474 INFO    MainThread:11948 [wandb_run.py:_restore():2199] restore done
