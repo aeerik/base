@@ -16,3 +16,34 @@ config: {'epochs': 50, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 2, 'emb
 2024-02-26 12:29:59,500 INFO    MainThread:11948 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
 2024-02-26 12:29:59,500 INFO    MainThread:11948 [wandb_run.py:_restore():2193] restore
 2024-02-26 12:29:59,501 INFO    MainThread:11948 [wandb_run.py:_restore():2199] restore done
+2024-02-26 12:30:06,995 INFO    MainThread:11948 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-26 12:30:07,000 INFO    MainThread:11948 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-26 12:30:07,007 INFO    MainThread:11948 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-26 12:30:07,631 INFO    MainThread:11948 [wandb_init.py:init():616] starting backend
+2024-02-26 12:30:07,632 INFO    MainThread:11948 [wandb_init.py:init():620] setting up manager
+2024-02-26 12:30:07,648 INFO    MainThread:11948 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-02-26 12:30:07,649 INFO    MainThread:11948 [wandb_init.py:init():628] backend started and connected
+2024-02-26 12:30:07,657 INFO    MainThread:11948 [wandb_run.py:_label_probe_notebook():1295] probe notebook
+2024-02-26 12:30:07,657 INFO    MainThread:11948 [wandb_run.py:_label_probe_notebook():1305] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-02-26 12:30:07,657 INFO    MainThread:11948 [wandb_init.py:init():720] updated telemetry
+2024-02-26 12:30:07,699 INFO    MainThread:11948 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-26 12:30:08,923 INFO    MainThread:11948 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-26 12:30:09,618 WARNING MainThread:11948 [wandb_init.py:init():1198] interrupted
+Traceback (most recent call last):
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\site-packages\wandb\sdk\wandb_init.py", line 1176, in init
+    run = wi.init()
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\site-packages\wandb\sdk\wandb_init.py", line 802, in init
+    run._on_init()
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\site-packages\wandb\sdk\wandb_run.py", line 2266, in _on_init
+    version_result = version_handle.wait(timeout=30)
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\site-packages\wandb\sdk\lib\mailbox.py", line 283, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\site-packages\wandb\sdk\lib\mailbox.py", line 130, in _get_and_clear
+    if self._wait(timeout=timeout):
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\site-packages\wandb\sdk\lib\mailbox.py", line 126, in _wait
+    return self._event.wait(timeout=timeout)
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\threading.py", line 581, in wait
+    signaled = self._cond.wait(timeout)
+  File "c:\Users\erikw\anaconda3\envs\exjobb\lib\threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt

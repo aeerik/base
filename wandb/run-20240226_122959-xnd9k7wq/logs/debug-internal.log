@@ -3,3 +3,35 @@
 2024-02-26 12:30:08,015 INFO    WriterThread:2536 [datastore.py:open_for_write():87] open: c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_122959-xnd9k7wq\run-xnd9k7wq.wandb
 2024-02-26 12:30:08,016 DEBUG   SenderThread:2536 [sender.py:send():382] send: header
 2024-02-26 12:30:08,016 DEBUG   SenderThread:2536 [sender.py:send():382] send: run
+2024-02-26 12:30:08,908 INFO    SenderThread:2536 [dir_watcher.py:__init__():211] watching files in: c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_122959-xnd9k7wq\files
+2024-02-26 12:30:08,909 INFO    SenderThread:2536 [sender.py:_start_run_threads():1136] run started: xnd9k7wq with start time 1708947007.649608
+2024-02-26 12:30:08,924 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: check_version
+2024-02-26 12:30:08,924 DEBUG   SenderThread:2536 [sender.py:send_request():409] send_request: check_version
+2024-02-26 12:30:13,635 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:18,674 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:23,725 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:28,768 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:33,815 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:38,851 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:43,903 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:48,926 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:53,964 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:30:59,004 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:04,024 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:09,043 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:14,063 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:19,088 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:24,137 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:29,163 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:34,222 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:39,260 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:44,315 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:49,362 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:54,396 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:31:59,447 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:32:04,493 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:32:09,518 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:32:14,556 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:32:19,604 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:32:24,652 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 12:32:29,695 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status_report
