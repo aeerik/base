@@ -1,0 +1,5 @@
+2024-02-26 14:30:19,801 INFO    StreamThr :4080 [internal.py:wandb_internal():86] W&B internal server running at pid: 4080, started at: 2024-02-26 14:30:19.800382
+2024-02-26 14:30:19,802 DEBUG   HandlerThread:4080 [handler.py:handle_request():146] handle_request: status
+2024-02-26 14:30:19,803 INFO    WriterThread:4080 [datastore.py:open_for_write():87] open: c:\Users\erikw\Desktop\ExjobbKod\base\wandb\run-20240226_143012-a8cqs75n\run-a8cqs75n.wandb
+2024-02-26 14:30:19,805 DEBUG   SenderThread:4080 [sender.py:send():382] send: header
+2024-02-26 14:30:19,805 DEBUG   SenderThread:4080 [sender.py:send():382] send: run

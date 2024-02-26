@@ -22,11 +22,10 @@ def export_results(results, savepath):
 
 def get_paths():
     cwd = os.getcwd()
-    print(cwd)
-    if  cwd == "'c:\\Users\\erikw\\Desktop\\Exjobb kod\\base'":
-        data_dir = 'c:\\Users\\erikw\\Desktop\\Exjobb kod\\data'
-        ab_dir = 'c:\\Users\\erikw\\Desktop\\Exjobb kod\\base'
-        save_directory = 'c:\\Users\\erikw\\Desktop\\Exjobb kod\\results'
+    if  cwd == "c:\\Users\\erikw\\Desktop\\ExjobbKod\\base":
+        data_dir = 'c:\\Users\\erikw\\Desktop\\ExjobbKod\\data'
+        ab_dir = 'c:\\Users\\erikw\\Desktop\\ExjobbKod\\base'
+        save_directory = 'c:\\Users\\erikw\\Desktop\\ExjobbKod\\results'
     elif cwd == "'c:\\Users\\erika\\Desktop\\Exjobb\\repo\\base'":
         data_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\data'
         ab_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\repo\\base'

@@ -1,0 +1,61 @@
+
+Epoch 1/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:04
+Epoch 2/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:10
+Epoch 3/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:17
+Epoch 4/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:23
+Epoch 5/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:28
+Epoch 6/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:33
+Epoch 7/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:39
+Epoch 8/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:44
+Epoch 9/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:49
+Epoch 10/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:54
+-=Training completed=-
+---------------------------------------------------------
+Exporting model...
+Model saved to c:\Users\erikw\Desktop\ExjobbKod\results/2024-02-26model.pkl
+Exporting results...
+Results saved to c:\Users\erikw\Desktop\ExjobbKod\results/2024-02-26runModeFalse.pkl
+Fine tuning mode
+Using CPU
+ Retrieving data from: c:\Users\erikw\Desktop\ExjobbKod\data
+Loading data...
+Data correctly loaded, 6483 samples found
+Creating vocabulary...
+Vocabulary created with number of elements: 475
+Number of antibiotics: 81
+Reducing samples to 1000
+Datasets has been created with 800 samples in the training set and 200 samples in the validation set
+Creating model...
+Model successfully loaded
+---------------------------------------------------------
+Starting training...

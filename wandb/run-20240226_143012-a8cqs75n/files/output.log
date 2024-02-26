@@ -1,0 +1,44 @@
+
+Epoch 1/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:08
+Epoch 2/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:14
+Epoch 3/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:21
+Epoch 4/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:28
+Epoch 5/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:34
+Epoch 6/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:41
+Epoch 7/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:47
+Epoch 8/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:00:54
+Epoch 9/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:01:00
+Epoch 10/10
+Epoch completed in 0.1 min
+Evaluating on validation set...
+Elapsed time: 00:01:08
+-=Training completed=-
+---------------------------------------------------------
+Exporting results...

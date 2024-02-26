@@ -5,10 +5,8 @@ import torch.nn.functional as F
 
 class JointEmbedding(nn.Module):
 
-    def __init__(self, embedding_dim, vocab_size, max_length, drop_prob):
+    def __init__(self, embedding_dim, vocab_size, drop_prob):
         super(JointEmbedding, self).__init__()
-
-        self.max_length = max_length
         self.drop_prob = drop_prob
         self.vocab_size = vocab_size
         self.embedding_dim = embedding_dim
