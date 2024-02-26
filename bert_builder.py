@@ -83,16 +83,15 @@ class resEncoder(nn.Module):
 
 class BERT_pt(nn.Module):
 
-    def __init__(self, vocab_size, max_length, dim_embedding, attention_heads, num_encoders, dropout_prob):
+    def __init__(self, vocab_size, dim_embedding, attention_heads, num_encoders, dropout_prob):
         super(BERT_pt, self).__init__()
         self.attention_heads = attention_heads
-        self.max_length = max_length
         self.vocab_size = vocab_size
         self.dim_embedding = dim_embedding
         self.num_encoders = num_encoders
         self.dropout_prob = dropout_prob  
 
-        self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.max_length, self.dropout_prob)
+        self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.dropout_prob)
         self.encoders = nn.ModuleList([resEncoder(self.dim_embedding, self.attention_heads, self.dropout_prob) for _ in range(self.num_encoders)])
 
         self.token_prediction_layer = nn.Linear(self.dim_embedding, self.vocab_size)
@@ -109,17 +108,16 @@ class BERT_pt(nn.Module):
 
 class BERT_ft(nn.Module):
 
-    def __init__(self, vocab_size, max_length, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab, device):
+    def __init__(self, vocab_size, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab, device):
         super(BERT_ft, self).__init__()
         self.attention_heads = attention_heads
-        self.max_length = max_length
         self.vocab_size = vocab_size
         self.dim_embedding = dim_embedding
         self.dim_hidden = dim_hidden    
         self.num_encoders = num_encoders
         self.dropout_prob = dropout_prob  
 
-        self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.max_length, self.dropout_prob)
+        self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.dropout_prob)
         self.encoders = nn.ModuleList([resEncoder(self.dim_embedding, self.attention_heads, self.dropout_prob) for _ in range(self.num_encoders)])
         self.token_prediction_layer = nn.Linear(self.dim_embedding, self.vocab_size)
         self.softmax = nn.LogSoftmax(dim=-1)

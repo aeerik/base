@@ -1,5 +1,6 @@
 import numpy as np
 import pickle
+import os
 def get_split_indices(size_to_split, val_share, random_state: int = 42):
     indices = np.arange(size_to_split)
     np.random.seed(random_state)
@@ -18,3 +19,16 @@ def export_results(results, savepath):
     with open(savepath, 'wb') as f:
         pickle.dump(results, f)
     print(f"Results saved to {savepath}")
+
+def get_paths():
+    cwd = os.getcwd()
+    print(cwd)
+    if  cwd == "'c:\\Users\\erikw\\Desktop\\Exjobb kod\\base'":
+        data_dir = 'c:\\Users\\erikw\\Desktop\\Exjobb kod\\data'
+        ab_dir = 'c:\\Users\\erikw\\Desktop\\Exjobb kod\\base'
+        save_directory = 'c:\\Users\\erikw\\Desktop\\Exjobb kod\\results'
+    elif cwd == "'c:\\Users\\erika\\Desktop\\Exjobb\\repo\\base'":
+        data_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\data'
+        ab_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\repo\\base'
+        save_directory = 'c:\\Users\\erika\\Desktop\\Exjobb\\savefiles'
+    return data_dir, ab_dir, save_directory
