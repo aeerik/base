@@ -1,0 +1,41 @@
+
+Epoch 1/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:00:50
+Epoch 2/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:01:41
+Epoch 3/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:02:33
+Epoch 4/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:03:24
+Epoch 5/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:04:15
+Epoch 6/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:05:05
+Epoch 7/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:05:55
+Epoch 8/10
+Epoch completed in 0.8 min
+Evaluating on validation set...
+Elapsed time: 00:06:56
+Epoch 9/10
+Epoch completed in 1.0 min
+Evaluating on validation set...
+Elapsed time: 00:08:05
+Epoch 10/10
+Epoch completed in 0.7 min
+Evaluating on validation set...
+Elapsed time: 00:08:56
