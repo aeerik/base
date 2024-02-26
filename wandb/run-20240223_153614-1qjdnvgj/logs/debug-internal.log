@@ -3598,3 +3598,8 @@
 2024-02-26 09:31:46,838 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: status_report
 2024-02-26 09:31:50,002 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: internal_messages
 2024-02-26 09:31:51,894 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 09:31:55,634 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-26 09:31:55,714 DEBUG   SenderThread:8008 [sender.py:send():382] send: stats
+2024-02-26 09:31:57,740 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: status_report
+2024-02-26 09:32:00,866 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-26 09:32:02,771 DEBUG   HandlerThread:8008 [handler.py:handle_request():146] handle_request: status_report
