@@ -1,0 +1,5 @@
+2024-02-26 12:30:08,012 INFO    StreamThr :2536 [internal.py:wandb_internal():86] W&B internal server running at pid: 2536, started at: 2024-02-26 12:30:08.012311
+2024-02-26 12:30:08,014 DEBUG   HandlerThread:2536 [handler.py:handle_request():146] handle_request: status
+2024-02-26 12:30:08,015 INFO    WriterThread:2536 [datastore.py:open_for_write():87] open: c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_122959-xnd9k7wq\run-xnd9k7wq.wandb
+2024-02-26 12:30:08,016 DEBUG   SenderThread:2536 [sender.py:send():382] send: header
+2024-02-26 12:30:08,016 DEBUG   SenderThread:2536 [sender.py:send():382] send: run

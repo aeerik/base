@@ -38,3 +38,24 @@ config: {'epochs': 30, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 2, 'emb
 2024-02-26 09:34:22,633 INFO    MainThread:11948 [wandb_run.py:_redirect():2186] Redirects installed.
 2024-02-26 09:34:22,633 INFO    MainThread:11948 [wandb_init.py:init():847] run started, returning control to user process
 2024-02-26 09:34:22,634 INFO    MainThread:11948 [wandb_watch.py:watch():51] Watching
+2024-02-26 11:06:49,140 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-26 11:06:49,140 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Configure stats pid to 11948
+2024-02-26 11:06:49,140 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Loading settings from C:\Users\erikw\.config\wandb\settings
+2024-02-26 11:06:49,141 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Loading settings from c:\Users\erikw\Desktop\Exjobb kod\base\wandb\settings
+2024-02-26 11:06:49,141 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-26 11:06:49,141 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-26 11:06:49,141 INFO    MainThread:11948 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-02-26 11:06:49,142 INFO    MainThread:11948 [wandb_init.py:_log_setup():526] Logging user logs to c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_110649-zzt7inel\logs\debug.log
+2024-02-26 11:06:49,142 INFO    MainThread:11948 [wandb_init.py:_log_setup():527] Logging internal logs to c:\Users\erikw\Desktop\Exjobb kod\base\wandb\run-20240226_110649-zzt7inel\logs\debug-internal.log
+2024-02-26 11:06:49,142 INFO    MainThread:11948 [wandb_init.py:_jupyter_setup():472] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x00000226176634F0>
+2024-02-26 11:06:49,143 INFO    MainThread:11948 [wandb_init.py:init():566] calling init triggers
+2024-02-26 11:06:49,143 INFO    MainThread:11948 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'epochs': 50, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 2, 'emb_dim': 128, 'ff_dim': 128, 'lr': 1e-05, 'weight_decay': 0.1, 'max_seq_len': 51, 'vocab_size': 475, 'num_parameters': 1277915}
+2024-02-26 11:06:49,143 INFO    MainThread:11948 [wandb_init.py:init():591] re-initializing run, found existing run on stack: tvejcc2l
+2024-02-26 11:06:49,147 INFO    MainThread:11948 [wandb_run.py:_finish():1970] finishing run strompfel/Trial_runs/tvejcc2l
+2024-02-26 11:06:49,148 INFO    MainThread:11948 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-02-26 11:06:49,148 INFO    MainThread:11948 [wandb_run.py:_restore():2193] restore
+2024-02-26 11:06:49,148 INFO    MainThread:11948 [wandb_run.py:_restore():2199] restore done
+2024-02-26 11:06:55,943 INFO    MainThread:11948 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-26 11:06:55,950 INFO    MainThread:11948 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-26 11:06:55,955 INFO    MainThread:11948 [wandb_run.py:_footer_sync_info():3825] logging synced files
