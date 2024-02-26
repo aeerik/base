@@ -52,7 +52,7 @@ def data_loader(include_pheno, threshold_year,data_path,ab_path):
     
     #phenotype 
     if include_pheno:
-        labels = ['=ND', '=I']
+        labels = ['=ND', '=I', '=NS', "=DD"]
         NCBI = NCBI[NCBI['AST_phenotypes'].notnull()]
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].str.split(',')
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: list(set([g.strip() for g in x])) if isinstance(x, list) else [])

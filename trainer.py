@@ -3,9 +3,10 @@ import torch
 from pathlib import Path
 from torch import nn
 from torch.utils.data import DataLoader
+import copy
 
 
-class BertTrainer:
+class BertTrainer_pt:
     def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, results_dir):
         
         self.model = model
@@ -95,13 +96,30 @@ class BertTrainer:
 
             tokens = self.model(input, attn_mask) 
             loss = self.criterion(tokens.transpose(-1, -2), token_target) 
-            
+            print(loss)
+            print(type(loss))
             epoch_loss += loss.item() 
             reporting_loss += loss.item()
             printing_loss += loss.item()
             
+            initial_params = {}
+            for name, param in self.model.named_parameters():
+                initial_params[name] = copy.deepcopy(param.data.clone())
+
             loss.backward() 
-            self.optimizer.step()         
+            self.optimizer.step() 
+            updated_params = {}
+            for name, param in self.model.named_parameters():    
+                updated_params[name] = copy.deepcopy(param.data.clone())
+            parameters_updated = False
+            for name in initial_params:
+                if not torch.allclose(initial_params[name], updated_params[name]):
+                    parameters_updated = True
+                break
+            if parameters_updated:
+                print("Parameters have been updated.")
+            else:
+                print("Parameters have not been updated.")        
         avg_epoch_loss = epoch_loss / self.num_batches
         return avg_epoch_loss 
     
