@@ -11,8 +11,7 @@ def data_loader(include_pheno, threshold_year,data_path,ab_path):
     os.chdir(data_dir)
     NCBI_raw = pd.read_csv('NCBI.tsv',sep='\t',header=0,low_memory=False)
 
-    selected_data = ['collection_date', 'geo_loc_name', 'AMR_genotypes_core']
-    selected_data += ['AST_phenotypes'] if include_pheno else []
+    selected_data = ['collection_date', 'geo_loc_name', 'AMR_genotypes_core', 'AST_phenotypes']
 
     NCBI_raw = NCBI_raw[selected_data]
 
@@ -58,7 +57,10 @@ def data_loader(include_pheno, threshold_year,data_path,ab_path):
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: list(set([g.strip() for g in x])) if isinstance(x, list) else [])
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: [g for g in x if not g.endswith(tuple(labels))] if isinstance(x, list) else [])
         NCBI = NCBI[NCBI['AST_phenotypes'].apply(lambda x: len(x) > 0)]
-
+    else: 
+        NCBI = NCBI[NCBI['AST_phenotypes'].isna()]
+        NCBI = NCBI.drop('AST_phenotypes', axis=1)
+    
     NCBI.fillna("[PAD]", inplace=True)
 
     ab_dir =Path(os.path.abspath(ab_path))
