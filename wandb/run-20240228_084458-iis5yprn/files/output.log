@@ -1,0 +1,23 @@
+
+Epoch 1/10
+Epoch completed in 0.2 min
+Evaluating on validation set...
+Elapsed time: 00:00:15
+Epoch 2/10
+Epoch completed in 0.2 min
+Evaluating on validation set...
+Elapsed time: 00:00:30
+Epoch 3/10
+c:\Users\erika\Desktop\Exjobb\repo\base
+Fine tuning mode
+Using CPU
+ Retrieving data from: c:\Users\erika\Desktop\Exjobb\data
+Loading data...
+Data correctly loaded, 6479 samples found
+Creating vocabulary...
+Vocabulary created with number of elements: 472
+Number of antibiotics: 81
+Datasets has been created with 5183 samples in the training set and 1296 samples in the validation set
+Creating model...
+Model successfully loaded
+---------------------------------------------------------

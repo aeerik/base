@@ -1,0 +1,112 @@
+2024-02-28 08:44:58,701 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 08:44:58,701 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Configure stats pid to 21948
+2024-02-28 08:44:58,701 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Loading settings from C:\Users\erika\.config\wandb\settings
+2024-02-28 08:44:58,701 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Loading settings from c:\Users\erika\Desktop\Exjobb\repo\base\wandb\settings
+2024-02-28 08:44:58,702 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-28 08:44:58,702 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 08:44:58,702 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-02-28 08:44:58,702 INFO    MainThread:21948 [wandb_init.py:_log_setup():526] Logging user logs to c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240228_084458-iis5yprn\logs\debug.log
+2024-02-28 08:44:58,702 INFO    MainThread:21948 [wandb_init.py:_log_setup():527] Logging internal logs to c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240228_084458-iis5yprn\logs\debug-internal.log
+2024-02-28 08:44:58,703 INFO    MainThread:21948 [wandb_init.py:_jupyter_setup():472] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x00000218D7602E80>
+2024-02-28 08:44:58,703 INFO    MainThread:21948 [wandb_init.py:init():566] calling init triggers
+2024-02-28 08:44:58,703 INFO    MainThread:21948 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 1, 'emb_dim': 128, 'ff_dim': 128, 'lr': 0.0001, 'weight_decay': 0.1, 'vocab_size': 472, 'num_parameters': 699352}
+2024-02-28 08:44:58,703 INFO    MainThread:21948 [wandb_init.py:init():616] starting backend
+2024-02-28 08:44:58,703 INFO    MainThread:21948 [wandb_init.py:init():620] setting up manager
+2024-02-28 08:44:58,710 INFO    MainThread:21948 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-02-28 08:44:58,714 INFO    MainThread:21948 [wandb_init.py:init():628] backend started and connected
+2024-02-28 08:44:58,730 INFO    MainThread:21948 [wandb_run.py:_label_probe_notebook():1295] probe notebook
+2024-02-28 08:44:58,731 INFO    MainThread:21948 [wandb_run.py:_label_probe_notebook():1305] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-02-28 08:44:58,731 INFO    MainThread:21948 [wandb_init.py:init():720] updated telemetry
+2024-02-28 08:44:58,786 INFO    MainThread:21948 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-28 08:44:59,533 INFO    MainThread:21948 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-28 08:44:59,971 INFO    MainThread:21948 [wandb_run.py:_on_init():2271] got version response 
+2024-02-28 08:44:59,971 INFO    MainThread:21948 [wandb_init.py:init():804] starting run threads in backend
+2024-02-28 08:45:11,754 INFO    MainThread:21948 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-28 08:45:11,754 INFO    MainThread:21948 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-28 08:45:11,755 INFO    MainThread:21948 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-28 08:45:11,756 INFO    MainThread:21948 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-28 08:45:11,758 INFO    MainThread:21948 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-28 08:45:11,758 INFO    MainThread:21948 [wandb_watch.py:watch():51] Watching
+2024-02-28 08:45:45,577 INFO    MainThread:21948 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-02-28 08:45:45,578 INFO    MainThread:21948 [wandb_init.py:_pause_backend():437] pausing backend
+2024-02-28 08:46:53,369 INFO    MainThread:21948 [wandb_init.py:_resume_backend():442] resuming backend
+2024-02-28 08:47:08,795 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 08:47:08,795 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Configure stats pid to 21948
+2024-02-28 08:47:08,795 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Loading settings from C:\Users\erika\.config\wandb\settings
+2024-02-28 08:47:08,795 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Loading settings from c:\Users\erika\Desktop\Exjobb\repo\base\wandb\settings
+2024-02-28 08:47:08,795 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-28 08:47:08,795 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 08:47:08,797 INFO    MainThread:21948 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-02-28 08:47:08,797 INFO    MainThread:21948 [wandb_init.py:_log_setup():526] Logging user logs to c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240228_084708-c1p4mz13\logs\debug.log
+2024-02-28 08:47:08,797 INFO    MainThread:21948 [wandb_init.py:_log_setup():527] Logging internal logs to c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240228_084708-c1p4mz13\logs\debug-internal.log
+2024-02-28 08:47:08,798 INFO    MainThread:21948 [wandb_init.py:init():566] calling init triggers
+2024-02-28 08:47:08,798 INFO    MainThread:21948 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'epochs': 30, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 1, 'emb_dim': 128, 'ff_dim': 128, 'lr': 0.0001, 'weight_decay': 0.1, 'vocab_size': 472, 'num_parameters': 699352}
+2024-02-28 08:47:08,798 INFO    MainThread:21948 [wandb_init.py:init():591] re-initializing run, found existing run on stack: iis5yprn
+2024-02-28 08:47:08,800 INFO    MainThread:21948 [wandb_run.py:_finish():1970] finishing run strompfel/Trial_runs/iis5yprn
+2024-02-28 08:47:08,800 INFO    MainThread:21948 [jupyter.py:save_history():445] not saving jupyter history
+2024-02-28 08:47:08,801 INFO    MainThread:21948 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-02-28 08:47:08,801 INFO    MainThread:21948 [wandb_init.py:_jupyter_teardown():454] cleaning up jupyter logic
+2024-02-28 08:47:08,801 INFO    MainThread:21948 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-02-28 08:47:08,801 INFO    MainThread:21948 [wandb_run.py:_restore():2193] restore
+2024-02-28 08:47:08,801 INFO    MainThread:21948 [wandb_run.py:_restore():2199] restore done
+2024-02-28 08:49:35,864 WARNING MsgRouterThr:21948 [router.py:message_loop():77] message_loop has been closed
+2024-02-28 08:49:36,434 INFO    MainThread:21948 [wandb_run.py:_restore():2193] restore
+2024-02-28 08:49:36,436 INFO    MainThread:21948 [wandb_run.py:_restore():2199] restore done
+2024-02-28 08:49:36,903 ERROR   MainThread:21948 [wandb_init.py:init():1204] error
+Traceback (most recent call last):
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 2219, in _atexit_cleanup
+    self._on_finish()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 2474, in _on_finish
+    _ = exit_handle.wait(timeout=-1, on_progress=self._on_progress_exit)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\lib\mailbox.py", line 298, in wait
+    on_probe(probe_handle)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 2436, in _on_probe_exit
+    result = handle.wait(timeout=0, release=False)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\lib\mailbox.py", line 281, in wait
+    raise MailboxError("transport failed")
+wandb.sdk.lib.mailbox.MailboxError: transport failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_init.py", line 1176, in init
+    run = wi.init()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_init.py", line 601, in init
+    latest_run.finish()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 420, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 361, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 1961, in finish
+    return self._finish(exit_code, quiet)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 1976, in _finish
+    self._atexit_cleanup(exit_code=exit_code)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\wandb_run.py", line 2230, in _atexit_cleanup
+    self._backend.cleanup()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\backend\backend.py", line 232, in cleanup
+    self.interface.join()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 547, in join
+    super().join()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\interface.py", line 710, in join
+    _ = self._communicate_shutdown()
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 440, in _communicate_shutdown
+    _ = self._communicate(record)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 300, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\interface_sock.py", line 60, in _communicate_async
+    future = self._router.send_and_receive(rec, local=local)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\router.py", line 94, in send_and_receive
+    self._send_message(rec)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\interface\router_sock.py", line 36, in _send_message
+    self._sock_client.send_record_communicate(record)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\lib\sock_client.py", line 216, in send_record_communicate
+    self.send_server_request(server_req)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\lib\sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\lib\sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "c:\Users\erika\anaconda3\envs\dml\lib\site-packages\wandb\sdk\lib\sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host

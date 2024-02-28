@@ -1,0 +1,1 @@
+{"epoch": 2, "GenoLosses/geno_train_loss": {"min": 6.402824726104736}, "ABLosses/ab_train_loss": 17.072392616271973, "GenoLosses/geno_val_loss": {"min": 1.8044463348388673}, "ABLosses/ab_val_loss": 3.790920867919922, "Accuracies/val_acc": {"min": 0.7236363636363636}, "_timestamp": 1709106342.0556486, "_runtime": 43.34130549430847, "_step": 1, "_wandb": {"runtime": 60}}
