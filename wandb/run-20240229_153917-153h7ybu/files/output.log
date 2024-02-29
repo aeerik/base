@@ -1,0 +1,64 @@
+
+Epoch 1/10
+21.29788558959961
+Epoch completed in 0.1 min
+Evaluating on validation set...
+19.927173614501953
+Elapsed time: 00:00:08
+Epoch 2/10
+18.958407516479493
+Epoch completed in 0.1 min
+Evaluating on validation set...
+18.49747395515442
+Elapsed time: 00:00:18
+Epoch 3/10
+17.77617835998535
+Epoch completed in 0.1 min
+Evaluating on validation set...
+17.617313543955486
+Elapsed time: 00:00:27
+Epoch 4/10
+16.98983123779297
+Epoch completed in 0.1 min
+Evaluating on validation set...
+16.85915156205495
+Elapsed time: 00:00:37
+Epoch 5/10
+16.108876571655273
+Epoch completed in 0.1 min
+Evaluating on validation set...
+16.214470386505127
+Elapsed time: 00:00:46
+Epoch 6/10
+15.720646705627441
+Epoch completed in 0.1 min
+Evaluating on validation set...
+15.589860598246256
+Elapsed time: 00:00:55
+Epoch 7/10
+15.145304832458496
+Epoch completed in 0.1 min
+Evaluating on validation set...
+15.137489318847656
+Elapsed time: 00:01:04
+Epoch 8/10
+14.718834609985352
+Epoch completed in 0.1 min
+Evaluating on validation set...
+14.773456573486328
+Elapsed time: 00:01:14
+Epoch 9/10
+14.36330955505371
+Epoch completed in 0.1 min
+Evaluating on validation set...
+14.495709617932638
+Elapsed time: 00:01:24
+Epoch 10/10
+14.023823356628418
+Epoch completed in 0.1 min
+Evaluating on validation set...
+14.256632407506308
+Elapsed time: 00:01:33
+-=Training completed=-
+---------------------------------------------------------
+Exporting results...

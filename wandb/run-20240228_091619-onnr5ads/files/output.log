@@ -91,3 +91,18 @@ Training interrupted at epoch: 22
 -=Training completed=-
 ---------------------------------------------------------
 Exporting results...
+Results saved to c:\Users\erika\Desktop\Exjobb\savefiles/2024-02-28runModeTrue.pkl
+c:\Users\erika\Desktop\Exjobb\repo\base
+Fine tuning mode
+Using CPU
+ Retrieving data from: c:\Users\erika\Desktop\Exjobb\data
+Loading data...
+Data correctly loaded, 6491 samples found
+Creating vocabulary...
+Vocabulary created with number of elements: 476
+Number of antibiotics: 81
+Datasets has been created with 5192 samples in the training set and 1299 samples in the validation set
+Creating model...
+Model successfully loaded
+---------------------------------------------------------
+Starting training...

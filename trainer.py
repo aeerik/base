@@ -5,19 +5,29 @@ from torch import nn
 from torch.utils.data import DataLoader
 import copy
 import wandb
+import numpy as np
 
 from loss_functions import custom_loss
 
 class BertTrainer_pt:
     def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
         
+        random_seed = 23
+        np.random.seed(random_seed)
+        torch.manual_seed(random_seed)
+        torch.cuda.manual_seed(random_seed)
+        torch.backends.cudnn.deterministic = True
+
         self.model = model
         self.train_set = train_set
         self.train_size = len(train_set)
+        self.val_size = len(val_set)
+
         self.val_set = val_set
         self.epochs = epochs    
         self.batch_size = batch_size
-        self.num_batches = self.train_size // self.batch_size
+        self.num_batches_train = self.train_size // self.batch_size
+        self.num_batches_val = self.val_size // self.batch_size
         self.lr = lr
         self.weight_decay = 0.01
         self.current_epoch  = 0
@@ -63,9 +73,12 @@ class BertTrainer_pt:
             criterion = self.stop_early()
             if criterion:
                 print(f"Training interrupted at epoch: {self.current_epoch+1}")
+                wandb.finish()
                 break
 
         print(f"-=Training completed=-")
+        wandb.finish()
+
         results = {
             "best_epoch": self.current_epoch,
             "train_losses": self.train_losses,
@@ -112,7 +125,7 @@ class BertTrainer_pt:
             loss.backward() 
             self.optimizer.step() 
             
-        avg_epoch_loss = epoch_loss / self.num_batches
+        avg_epoch_loss = epoch_loss / self.num_batches_train
         return avg_epoch_loss 
     
     def evaluate(self, loader):
@@ -137,7 +150,7 @@ class BertTrainer_pt:
                 total_correct += correct
                 total_tokens += token_target.numel() 
         
-        avg_epoch_loss = epoch_loss / len(loader)
+        avg_epoch_loss = epoch_loss / self.num_batches_val
         accuracy = total_correct / total_tokens
 
         return avg_epoch_loss, accuracy
@@ -185,13 +198,23 @@ class BertTrainer_pt:
 class BertTrainer_ft:
     def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
         
+        random_seed = 23
+        np.random.seed(random_seed)
+        torch.manual_seed(random_seed)
+        torch.cuda.manual_seed(random_seed)
+        torch.backends.cudnn.deterministic = True
+
         self.model = model
         self.train_set = train_set
         self.train_size = len(train_set)
+        self.val_size = len(val_set)
+
         self.val_set = val_set
         self.epochs = epochs    
         self.batch_size = batch_size
-        self.num_batches = self.train_size // self.batch_size
+        self.num_batches_train = self.train_size // self.batch_size
+        self.num_batches_val = self.val_size // self.batch_size
+
         self.lr = lr
         self.weight_decay = 0.1
         self.current_epoch  = 0
@@ -238,8 +261,10 @@ class BertTrainer_ft:
             criterion = self.stop_early()
             if criterion:
                 print(f"Training interrupted at epoch: {self.current_epoch+1}")
+                wandb.finish()
                 break
         print(f"-=Training completed=-")
+        wandb.finish()
         results = {
             "best_epoch": self.best_epoch,
             "geno_train_losses": self.train_losses_geno,
@@ -308,14 +333,11 @@ class BertTrainer_ft:
             pheno_loss.backward() 
             epoch_loss_geno += geno_loss.item()
             epoch_loss_pheno += pheno_loss.item()
-
             self.optimizer.step()
             self.model.reset_exclusion()   
               
-
-        avg_epoch_loss_geno = epoch_loss_geno / self.num_batches
-        avg_epoch_loss_pheno = epoch_loss_pheno / self.num_batches
-
+        avg_epoch_loss_geno = epoch_loss_geno / self.num_batches_train
+        avg_epoch_loss_pheno = epoch_loss_pheno / self.num_batches_train
         return avg_epoch_loss_geno, avg_epoch_loss_pheno
     
     def evaluate(self, loader):
@@ -367,8 +389,8 @@ class BertTrainer_ft:
                     total_correct += (row == list_AB_predictions[i]).sum().item()
                     total_sum += len(row)
 
-        avg_epoch_loss_geno = epoch_loss_geno / self.num_batches
-        avg_epoch_loss_ab = epoch_loss_ab / self.num_batches
+        avg_epoch_loss_geno = epoch_loss_geno / self.num_batches_val
+        avg_epoch_loss_ab = epoch_loss_ab / self.num_batches_val
 
         accuracy = total_correct / total_sum
 

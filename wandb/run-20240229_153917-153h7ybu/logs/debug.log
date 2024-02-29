@@ -1,0 +1,20 @@
+2024-02-29 15:39:17,925 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-29 15:39:17,925 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Configure stats pid to 31132
+2024-02-29 15:39:17,925 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Loading settings from C:\Users\erika\.config\wandb\settings
+2024-02-29 15:39:17,925 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Loading settings from c:\Users\erika\Desktop\Exjobb\repo\base\wandb\settings
+2024-02-29 15:39:17,925 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-29 15:39:17,925 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-29 15:39:17,927 INFO    MainThread:31132 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-02-29 15:39:17,927 INFO    MainThread:31132 [wandb_init.py:_log_setup():526] Logging user logs to c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_153917-153h7ybu\logs\debug.log
+2024-02-29 15:39:17,927 INFO    MainThread:31132 [wandb_init.py:_log_setup():527] Logging internal logs to c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_153917-153h7ybu\logs\debug-internal.log
+2024-02-29 15:39:17,927 INFO    MainThread:31132 [wandb_init.py:init():566] calling init triggers
+2024-02-29 15:39:17,927 INFO    MainThread:31132 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 1, 'emb_dim': 256, 'ff_dim': 256, 'lr': 1e-05, 'weight_decay': 0.1, 'vocab_size': 476, 'num_parameters': 2547164}
+2024-02-29 15:39:17,927 INFO    MainThread:31132 [wandb_init.py:init():591] re-initializing run, found existing run on stack: 6ca4eon8
+2024-02-29 15:39:17,930 INFO    MainThread:31132 [wandb_run.py:_finish():1970] finishing run strompfel/Trial_runs/6ca4eon8
+2024-02-29 15:39:17,930 INFO    MainThread:31132 [jupyter.py:save_history():445] not saving jupyter history
+2024-02-29 15:39:17,930 INFO    MainThread:31132 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-02-29 15:39:17,930 INFO    MainThread:31132 [wandb_init.py:_jupyter_teardown():454] cleaning up jupyter logic
+2024-02-29 15:39:17,930 INFO    MainThread:31132 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-02-29 15:39:17,930 INFO    MainThread:31132 [wandb_run.py:_restore():2193] restore
+2024-02-29 15:39:17,931 INFO    MainThread:31132 [wandb_run.py:_restore():2199] restore done

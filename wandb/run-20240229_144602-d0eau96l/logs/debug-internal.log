@@ -1,0 +1,62 @@
+2024-02-29 14:46:11,001 INFO    StreamThr :28636 [internal.py:wandb_internal():86] W&B internal server running at pid: 28636, started at: 2024-02-29 14:46:10.980794
+2024-02-29 14:46:11,009 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status
+2024-02-29 14:46:11,013 INFO    WriterThread:28636 [datastore.py:open_for_write():87] open: c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_144602-d0eau96l\run-d0eau96l.wandb
+2024-02-29 14:46:11,018 DEBUG   SenderThread:28636 [sender.py:send():382] send: header
+2024-02-29 14:46:11,018 DEBUG   SenderThread:28636 [sender.py:send():382] send: run
+2024-02-29 14:46:11,765 INFO    SenderThread:28636 [dir_watcher.py:__init__():211] watching files in: c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_144602-d0eau96l\files
+2024-02-29 14:46:11,765 INFO    SenderThread:28636 [sender.py:_start_run_threads():1136] run started: d0eau96l with start time 1709214370.474675
+2024-02-29 14:46:11,777 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: check_version
+2024-02-29 14:46:11,777 DEBUG   SenderThread:28636 [sender.py:send_request():409] send_request: check_version
+2024-02-29 14:46:12,229 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: run_start
+2024-02-29 14:46:12,245 DEBUG   HandlerThread:28636 [system_info.py:__init__():27] System info init
+2024-02-29 14:46:12,245 DEBUG   HandlerThread:28636 [system_info.py:__init__():42] System info init done
+2024-02-29 14:46:12,245 INFO    HandlerThread:28636 [system_monitor.py:start():194] Starting system monitor
+2024-02-29 14:46:12,245 INFO    SystemMonitor:28636 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-02-29 14:46:12,245 INFO    HandlerThread:28636 [system_monitor.py:probe():214] Collecting system info
+2024-02-29 14:46:12,254 INFO    SystemMonitor:28636 [interfaces.py:start():190] Started cpu monitoring
+2024-02-29 14:46:12,258 DEBUG   HandlerThread:28636 [system_info.py:probe():151] Probing system
+2024-02-29 14:46:12,262 INFO    SystemMonitor:28636 [interfaces.py:start():190] Started disk monitoring
+2024-02-29 14:46:12,274 INFO    SystemMonitor:28636 [interfaces.py:start():190] Started memory monitoring
+2024-02-29 14:46:12,282 INFO    SystemMonitor:28636 [interfaces.py:start():190] Started network monitoring
+2024-02-29 14:46:12,290 DEBUG   HandlerThread:28636 [system_info.py:_probe_git():136] Probing git
+2024-02-29 14:46:12,400 DEBUG   HandlerThread:28636 [system_info.py:_probe_git():144] Probing git done
+2024-02-29 14:46:12,400 DEBUG   HandlerThread:28636 [system_info.py:probe():199] Probing system done
+2024-02-29 14:46:12,400 DEBUG   HandlerThread:28636 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.9.17', 'heartbeatAt': '2024-02-29T13:46:12.258206', 'startedAt': '2024-02-29T13:46:02.595194', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'codePathLocal': None, 'git': {'remote': 'https://github.com/aeerik/base.git', 'commit': '73839e64830e5cfd91a97f7865120177d5cc0004'}, 'email': 'erik.willem.aerts@gmail.com', 'root': 'C:/Users/erika/Desktop/Exjobb/repo/base', 'host': 'DESKTOP-7I7AFIL', 'username': 'erika', 'executable': 'c:\\Users\\erika\\anaconda3\\envs\\dml\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2918.0, 'min': 0.0, 'max': 2918.0}, 'cpu_freq_per_core': [{'current': 2918.0, 'min': 0.0, 'max': 2918.0}], 'disk': {'/': {'total': 457.50683212280273, 'used': 257.76318740844727}}, 'memory': {'total': 15.744903564453125}}
+2024-02-29 14:46:12,401 INFO    HandlerThread:28636 [system_monitor.py:probe():224] Finished collecting system info
+2024-02-29 14:46:12,401 INFO    HandlerThread:28636 [system_monitor.py:probe():227] Publishing system info
+2024-02-29 14:46:12,401 DEBUG   HandlerThread:28636 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-02-29 14:46:12,771 INFO    Thread-45 :28636 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_144602-d0eau96l\files\conda-environment.yaml
+2024-02-29 14:46:23,855 INFO    Thread-45 :28636 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_144602-d0eau96l\files\conda-environment.yaml
+2024-02-29 14:46:24,204 DEBUG   HandlerThread:28636 [system_info.py:_save_conda():220] Saving conda packages done
+2024-02-29 14:46:24,206 INFO    HandlerThread:28636 [system_monitor.py:probe():229] Finished publishing system info
+2024-02-29 14:46:24,206 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:24,206 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-29 14:46:24,206 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:24,206 DEBUG   SenderThread:28636 [sender.py:send():382] send: files
+2024-02-29 14:46:24,206 INFO    SenderThread:28636 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-02-29 14:46:24,861 INFO    Thread-45 :28636 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240229_144602-d0eau96l\files\wandb-metadata.json
+2024-02-29 14:46:25,197 INFO    wandb-upload_0:28636 [upload_job.py:push():131] Uploaded file C:\Users\erika\AppData\Local\Temp\tmpu5ya3amswandb\364nyi52-wandb-metadata.json
+2024-02-29 14:46:27,222 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:32,258 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:37,301 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:42,334 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:47,364 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:52,412 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:46:57,463 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:02,505 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:07,540 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:12,285 DEBUG   SystemMonitor:28636 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-02-29 14:47:12,288 DEBUG   SenderThread:28636 [sender.py:send():382] send: stats
+2024-02-29 14:47:13,298 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:18,314 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:23,367 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:28,402 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:33,445 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:38,490 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:42,299 DEBUG   SenderThread:28636 [sender.py:send():382] send: stats
+2024-02-29 14:47:44,312 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:49,360 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:54,390 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:47:59,419 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:48:04,454 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-29 14:48:09,485 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report

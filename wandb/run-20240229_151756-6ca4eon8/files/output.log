@@ -1,0 +1,200 @@
+
+Epoch 1/30
+19.145967102050783
+Epoch completed in 0.9 min
+Evaluating on validation set...
+17.05975596110026
+Elapsed time: 00:00:59
+Epoch 2/30
+15.515269088745118
+Epoch completed in 0.9 min
+Evaluating on validation set...
+15.382299145062765
+Elapsed time: 00:01:58
+Epoch 3/30
+13.949283447265625
+Epoch completed in 0.9 min
+Evaluating on validation set...
+14.436862667401632
+Elapsed time: 00:02:56
+Epoch 4/30
+13.104914588928223
+Epoch completed in 0.9 min
+Evaluating on validation set...
+13.91008754571279
+Elapsed time: 00:03:55
+Epoch 5/30
+12.329526062011718
+Epoch completed in 0.9 min
+Evaluating on validation set...
+13.375858068466187
+Elapsed time: 00:04:54
+Epoch 6/30
+11.854459953308105
+Epoch completed in 0.9 min
+Evaluating on validation set...
+13.013630747795105
+Elapsed time: 00:05:52
+Epoch 7/30
+11.523602828979492
+Epoch completed in 0.3 min
+Evaluating on validation set...
+12.744455655415853
+Elapsed time: 00:06:14
+Epoch 8/30
+11.096478233337402
+Epoch completed in 0.3 min
+Evaluating on validation set...
+12.45231600602468
+Elapsed time: 00:06:35
+Epoch 9/30
+10.754583473205566
+Epoch completed in 0.3 min
+Evaluating on validation set...
+12.233680923779806
+Elapsed time: 00:06:57
+Epoch 10/30
+10.583398094177246
+Epoch completed in 0.3 min
+Evaluating on validation set...
+12.031139214833578
+Elapsed time: 00:07:19
+Epoch 11/30
+10.379163513183594
+Epoch completed in 0.3 min
+Evaluating on validation set...
+11.840160687764486
+Elapsed time: 00:07:42
+Epoch 12/30
+10.24154224395752
+Epoch completed in 0.3 min
+Evaluating on validation set...
+11.694874803225199
+Elapsed time: 00:08:04
+Epoch 13/30
+10.063641967773437
+Epoch completed in 0.3 min
+Evaluating on validation set...
+11.553946932156881
+Elapsed time: 00:08:27
+Epoch 14/30
+9.72676134109497
+Epoch completed in 0.7 min
+Evaluating on validation set...
+11.488244771957397
+Elapsed time: 00:09:12
+Epoch 15/30
+9.769598655700683
+Epoch completed in 0.9 min
+Evaluating on validation set...
+11.40264101823171
+Elapsed time: 00:10:11
+Epoch 16/30
+9.467361316680908
+Epoch completed in 0.4 min
+Evaluating on validation set...
+11.184162457784018
+Elapsed time: 00:10:38
+Epoch 17/30
+9.387843437194825
+Epoch completed in 0.3 min
+Evaluating on validation set...
+11.156552910804749
+Elapsed time: 00:10:59
+Epoch 18/30
+9.376082782745362
+Epoch completed in 0.3 min
+Evaluating on validation set...
+11.034997701644897
+Elapsed time: 00:11:21
+Epoch 19/30
+9.274323577880859
+Epoch completed in 0.4 min
+Evaluating on validation set...
+10.999429941177368
+Elapsed time: 00:11:51
+Epoch 20/30
+8.998824558258057
+Epoch completed in 0.9 min
+Evaluating on validation set...
+10.903278152147928
+Elapsed time: 00:12:50
+Epoch 21/30
+9.066430187225341
+Epoch completed in 0.9 min
+Evaluating on validation set...
+10.839089632034302
+Elapsed time: 00:13:49
+Epoch 22/30
+8.782894020080567
+Epoch completed in 0.4 min
+Evaluating on validation set...
+10.764008045196533
+Elapsed time: 00:14:13
+Epoch 23/30
+8.780069923400879
+Epoch completed in 0.3 min
+Evaluating on validation set...
+10.724221309026083
+Elapsed time: 00:14:34
+Epoch 24/30
+8.58647632598877
+Epoch completed in 0.3 min
+Evaluating on validation set...
+10.660665313402811
+Elapsed time: 00:14:57
+Epoch 25/30
+8.572599620819092
+Epoch completed in 0.3 min
+Evaluating on validation set...
+10.561834931373596
+Elapsed time: 00:15:20
+Epoch 26/30
+8.429097881317139
+Epoch completed in 0.3 min
+Evaluating on validation set...
+10.582663973172506
+Elapsed time: 00:15:43
+Epoch 27/30
+8.361779479980468
+Epoch completed in 0.3 min
+Evaluating on validation set...
+10.561548431714376
+Elapsed time: 00:16:06
+Epoch 28/30
+8.3650461769104
+Epoch completed in 0.4 min
+Evaluating on validation set...
+10.482646067937216
+Elapsed time: 00:16:30
+Epoch 29/30
+8.333301124572754
+Epoch completed in 0.3 min
+Evaluating on validation set...
+10.43321547905604
+Elapsed time: 00:16:53
+Epoch 30/30
+8.212575416564942
+Epoch completed in 0.4 min
+Evaluating on validation set...
+10.384535133838654
+Elapsed time: 00:17:20
+-=Training completed=-
+---------------------------------------------------------
+Exporting results...
+Results saved to c:\Users\erika\Desktop\Exjobb\savefiles/2024-02-29runModeTrue.pkl
+c:\Users\erika\Desktop\Exjobb\repo\base
+Fine tuning mode
+Using CPU
+ Retrieving data from: c:\Users\erika\Desktop\Exjobb\data
+Loading data...
+Data correctly loaded, 6491 samples found
+Creating vocabulary...
+Vocabulary created with number of elements: 476
+Number of antibiotics: 81
+Reducing samples to 1000
+Datasets has been created with 800 samples in the training set and 200 samples in the validation set
+Creating model...
+Model successfully loaded
+---------------------------------------------------------
+Starting training...
