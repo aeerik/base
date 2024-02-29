@@ -9800,3 +9800,7 @@
 2024-02-28 13:19:02,182 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
 2024-02-28 13:19:03,911 DEBUG   SenderThread:28636 [sender.py:send():382] send: stats
 2024-02-28 13:19:06,030 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-28 13:19:07,936 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-28 13:19:11,073 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-28 13:19:13,006 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: status_report
+2024-02-28 13:19:15,452 DEBUG   HandlerThread:28636 [handler.py:handle_request():146] handle_request: internal_messages
