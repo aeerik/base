@@ -34,6 +34,10 @@ def get_paths():
         data_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\data'
         ab_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\repo\\base'
         save_directory = 'c:\\Users\\erika\\Desktop\\Exjobb\\savefiles'
+    elif cwd == '/cephyr/users/aeerik/Alvis/base':
+        data_dir = '/cephyr/users/aeerik/Alvis/data/raw'
+        ab_dir = '/cephyr/users/aeerik/Alvis/base'
+        save_directory = '/cephyr/users/aeerik/Alvis/runs'     
     return data_dir, ab_dir, save_directory
 
 def model_loader(savepath: Path,vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, device):
