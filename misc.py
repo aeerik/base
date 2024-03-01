@@ -1,6 +1,9 @@
 import numpy as np
 import pickle
+from pathlib import Path
+import torch
 import os
+from bert_builder import BERT
 def get_split_indices(size_to_split, val_share, random_state: int = 42):
     indices = np.arange(size_to_split)
     np.random.seed(random_state)
@@ -32,3 +35,9 @@ def get_paths():
         ab_dir = 'c:\\Users\\erika\\Desktop\\Exjobb\\repo\\base'
         save_directory = 'c:\\Users\\erika\\Desktop\\Exjobb\\savefiles'
     return data_dir, ab_dir, save_directory
+
+def model_loader(savepath: Path,vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, device):
+    print(f"Loading model from {savepath}")
+    model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device)
+    model.load_state_dict(torch.load(savepath))
+    return model

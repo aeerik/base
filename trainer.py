@@ -115,8 +115,8 @@ class BertTrainer_pt:
             
             self.optimizer.zero_grad() 
 
-            tokens = self.model(input, attn_mask) 
-            loss = self.criterion(tokens.transpose(-1, -2), token_target) 
+            token_predictions, resistance_predictions = self.model(input, attn_mask) 
+            loss = self.criterion(token_predictions.transpose(-1, -2), token_target) 
             epoch_loss += loss.item() 
             reporting_loss += loss.item()
             printing_loss += loss.item()
@@ -137,12 +137,13 @@ class BertTrainer_pt:
         with torch.no_grad():
             for i, batch in enumerate(loader):
                 input, token_target, attn_mask = batch
-                tokens = self.model(input, attn_mask)
-                loss = self.criterion(tokens.transpose(-1, -2), token_target)
+                token_predictions, resistance_predictions = self.model(input, attn_mask)
+
+                loss = self.criterion(token_predictions.transpose(-1, -2), token_target)
                 epoch_loss += loss.item()
                 
                 token_mask =  token_target != -1
-                predicted_tokens = tokens.argmax(dim=-1)
+                predicted_tokens = token_predictions.argmax(dim=-1)
                 token_target = torch.masked_select(token_target, token_mask)
                 predicted_tokens = torch.masked_select(predicted_tokens, token_mask)
                 

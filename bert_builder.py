@@ -81,35 +81,10 @@ class resEncoder(nn.Module):
         x = self.layer_norm(x)
         return x
 
-class BERT_pt(nn.Module):
-
-    def __init__(self, vocab_size, dim_embedding, attention_heads, num_encoders, dropout_prob):
-        super(BERT_pt, self).__init__()
-        self.attention_heads = attention_heads
-        self.vocab_size = vocab_size
-        self.dim_embedding = dim_embedding
-        self.num_encoders = num_encoders
-        self.dropout_prob = dropout_prob  
-
-        self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.dropout_prob)
-        self.encoders = nn.ModuleList([resEncoder(self.dim_embedding, self.attention_heads, self.dropout_prob) for _ in range(self.num_encoders)])
-
-        self.token_prediction_layer = nn.Linear(self.dim_embedding, self.vocab_size)
-        self.softmax = nn.LogSoftmax(dim=-1)
-
-    def forward(self, input_tensor: torch.Tensor, attention_mask: torch.Tensor):
-        embedded = self.embedding(input_tensor)
-        for layer in self.encoders:
-            embedded = layer(embedded, attention_mask)
-
-        token_predictions = self.token_prediction_layer(embedded)
-
-        return self.softmax(token_predictions)    
-
-class BERT_ft(nn.Module):
+class BERT(nn.Module):
 
     def __init__(self, vocab_size, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab, device):
-        super(BERT_ft, self).__init__()
+        super(BERT, self).__init__()
         self.attention_heads = attention_heads
         self.vocab_size = vocab_size
         self.dim_embedding = dim_embedding
@@ -148,6 +123,18 @@ class BERT_ft(nn.Module):
         for network in self.BC:
             for param in network.parameters():
                 param.requires_grad = True
+    
+    def pretrain_freezing(self):
+        for network in self.BC:
+            for param in network.parameters():
+                param.requires_grad = False
+        print(f"Parallell networks are frozen")
+    
+    def finetune_unfreezeing(self):
+        for network in self.BC:
+            for param in network.parameters():
+                param.requires_grad = True
+        print(f"Parallell networks are trainable")
 
 class BC_Ab(nn.Module): 
     def __init__(self, emb_dim: int, hidden_dim: int):
