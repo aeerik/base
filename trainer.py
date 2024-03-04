@@ -387,6 +387,8 @@ class BertTrainer_ft:
                 
                     processed_tensor = [row[row != -1] for row in SR_class]
                 for i, row in enumerate(processed_tensor):
+                    row = row.to(self.device)  # Move row tensor to the same device
+                    list_AB_predictions[i] = list_AB_predictions[i].to(self.device)
                     total_correct += (row == list_AB_predictions[i]).sum().item()
                     total_sum += len(row)
 
