@@ -7,6 +7,7 @@ import copy
 import wandb
 import numpy as np
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 from loss_functions import custom_loss
 
 class BertTrainer_pt:
@@ -225,10 +226,9 @@ class BertTrainer_ft:
         self.wandb_mode = wandb_mode
         self.project_name = project_name
         self.wandb_name = wandb_name
-        self.device = device
         self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay)
-        self.token_criterion = nn.CrossEntropyLoss(ignore_index = -1).to(self.device)
-        self.ab_criterion = nn.BCEWithLogitsLoss().to(self.device)
+        self.token_criterion = nn.CrossEntropyLoss(ignore_index = -1).to(device)
+        self.ab_criterion = nn.BCEWithLogitsLoss().to(device)
 
 
     def __call__(self):   

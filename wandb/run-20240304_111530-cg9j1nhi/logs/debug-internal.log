@@ -1,0 +1,5 @@
+2024-03-04 11:15:30,465 INFO    StreamThr :11684 [internal.py:wandb_internal():86] W&B internal server running at pid: 11684, started at: 2024-03-04 11:15:30.461205
+2024-03-04 11:15:30,469 DEBUG   HandlerThread:11684 [handler.py:handle_request():146] handle_request: status
+2024-03-04 11:15:30,477 INFO    WriterThread:11684 [datastore.py:open_for_write():87] open: c:\Users\erika\Desktop\Exjobb\repo\base\wandb\run-20240304_111530-cg9j1nhi\run-cg9j1nhi.wandb
+2024-03-04 11:15:30,477 DEBUG   SenderThread:11684 [sender.py:send():382] send: header
+2024-03-04 11:15:30,573 DEBUG   SenderThread:11684 [sender.py:send():382] send: run

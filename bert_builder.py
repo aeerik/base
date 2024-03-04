@@ -4,6 +4,8 @@ from torch import nn
 import torch.nn.functional as f
 from embedding import JointEmbedding
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 class AttentionHead(nn.Module):
 
     def __init__(self, dim_embedding, drop_prob):
