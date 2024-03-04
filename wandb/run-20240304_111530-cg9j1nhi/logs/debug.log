@@ -19,3 +19,14 @@ config: {'epochs': 100, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 3, 'em
 2024-03-04 11:15:30,477 INFO    MainThread:31764 [wandb_run.py:_label_probe_notebook():1305] Unable to probe notebook: 'NoneType' object has no attribute 'get'
 2024-03-04 11:15:30,477 INFO    MainThread:31764 [wandb_init.py:init():720] updated telemetry
 2024-03-04 11:15:30,556 INFO    MainThread:31764 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-04 11:15:31,487 INFO    MainThread:31764 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-04 11:15:31,938 INFO    MainThread:31764 [wandb_run.py:_on_init():2271] got version response 
+2024-03-04 11:15:31,938 INFO    MainThread:31764 [wandb_init.py:init():804] starting run threads in backend
+2024-03-04 11:15:41,086 INFO    MainThread:31764 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-04 11:15:41,086 INFO    MainThread:31764 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-04 11:15:41,086 INFO    MainThread:31764 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-04 11:15:41,086 INFO    MainThread:31764 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-04 11:15:41,086 INFO    MainThread:31764 [wandb_init.py:init():847] run started, returning control to user process
+2024-03-04 11:15:41,086 INFO    MainThread:31764 [wandb_watch.py:watch():51] Watching
+2024-03-04 11:18:05,721 INFO    MainThread:31764 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-03-04 11:18:05,721 INFO    MainThread:31764 [wandb_init.py:_pause_backend():437] pausing backend
