@@ -1,0 +1,212 @@
+{
+    "os": "Linux-4.18.0-477.27.1.el8_8.x86_64-x86_64-with-glibc2.31",
+    "python": "3.11.5",
+    "heartbeatAt": "2024-03-04T09:19:43.429787",
+    "startedAt": "2024-03-04T09:19:42.110169",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/cephyr/users/aeerik/Alvis/base/run.py",
+    "codePathLocal": "run.py",
+    "codePath": "run.py",
+    "git": {
+        "remote": "https://github.com/aeerik/base.git",
+        "commit": "1e4134643fa21a83fdb11295cd694fc64188b9a0"
+    },
+    "email": "erik.willem.aerts@gmail.com",
+    "root": "/cephyr/users/aeerik/Alvis/base",
+    "host": "alvis2-08",
+    "username": "aeerik",
+    "executable": "/opt/conda/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 2859.26290625,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1200.017,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2276.225,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 0.015625,
+            "used": 1.1444091796875e-05
+        }
+    },
+    "gpu": "Tesla T4",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "Tesla T4",
+            "memory_total": 16106127360
+        },
+        {
+            "name": "Tesla T4",
+            "memory_total": 16106127360
+        }
+    ],
+    "memory": {
+        "total": 566.075267791748
+    }
+}

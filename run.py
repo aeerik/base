@@ -54,7 +54,7 @@ num_encoders = 3
 epochs = 100
 batch_size = 32
 lr = 0.00001
-stop_patience = 3
+stop_patience = 5
 
 # WandB settingsS
 wandb_project = "Model_complexity"

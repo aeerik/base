@@ -1,0 +1,27 @@
+
+Epoch 1/100
+Traceback (most recent call last):
+  File "/cephyr/users/aeerik/Alvis/base/run.py", line 127, in <module>
+    results = trainer()
+              ^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 248, in __call__
+    avg_epoch_loss_geno, avg_epoch_loss_pheno = self.train(self.current_epoch)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 307, in train
+    for i, batch in enumerate(self.train_loader):
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/create_dataset.py", line 63, in __getitem__
+    input = torch.Tensor(item[self.MASKED_INDICES_COLUMN],device=device).long()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: legacy constructor expects device type: cpu but device type: cuda was passed
