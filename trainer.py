@@ -38,11 +38,11 @@ class BertTrainer_pt:
         self.wandb_mode = wandb_mode
         self.project_name = project_name
         self.wandb_name = wandb_name
-        
-        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay)
-        self.criterion = nn.CrossEntropyLoss(ignore_index = -1).to(device)
-
         self.device = device
+        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+        self.criterion = nn.CrossEntropyLoss(ignore_index = -1).to(self.device)
+
+
 
     def __call__(self):
         if self.wandb_mode:
@@ -222,13 +222,13 @@ class BertTrainer_ft:
         self.current_epoch  = 0
         self.early_stopping_counter = 0	
         self.patience = stop_patience
-        
+        self.device = device
         self.wandb_mode = wandb_mode
         self.project_name = project_name
         self.wandb_name = wandb_name
         self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay)
-        self.token_criterion = nn.CrossEntropyLoss(ignore_index = -1).to(device)
-        self.ab_criterion = nn.BCEWithLogitsLoss().to(device)
+        self.token_criterion = nn.CrossEntropyLoss(ignore_index = -1).to(self.device)
+        self.ab_criterion = nn.BCEWithLogitsLoss().to(self.device)
 
 
     def __call__(self):   
@@ -357,7 +357,7 @@ class BertTrainer_ft:
                 
                 result_list = []
                 for j in range(len(AB_idx)):
-                    result_tensor = torch.full((81,), -1, device=device)  # Create tensor filled with -1 values
+                    result_tensor = torch.full((81,), -1, device=self.device)  # Create tensor filled with -1 values
                     for idx, value in enumerate(AB_idx[j]):
                         if value != -1:
                             result_tensor[value.item()] = SR_class[j][idx]

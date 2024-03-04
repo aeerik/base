@@ -1,0 +1,44 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.9.17",
+    "heartbeatAt": "2024-03-04T13:37:08.508717",
+    "startedAt": "2024-03-04T13:37:07.096354",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/aeerik/base.git",
+        "commit": "08f6ab90483d43b1d4545260eae0013727045ff3"
+    },
+    "email": "erik.willem.aerts@gmail.com",
+    "root": "C:/Users/erika/Desktop/Exjobb/repo/base",
+    "host": "DESKTOP-7I7AFIL",
+    "username": "erika",
+    "executable": "c:\\Users\\erika\\anaconda3\\envs\\dml\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2918.0,
+        "min": 0.0,
+        "max": 2918.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2918.0,
+            "min": 0.0,
+            "max": 2918.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 457.50683212280273,
+            "used": 256.10810470581055
+        }
+    },
+    "memory": {
+        "total": 15.744903564453125
+    }
+}
