@@ -1,0 +1,212 @@
+{
+    "os": "Linux-4.18.0-477.27.1.el8_8.x86_64-x86_64-with-glibc2.31",
+    "python": "3.11.5",
+    "heartbeatAt": "2024-03-04T13:11:50.555823",
+    "startedAt": "2024-03-04T13:11:49.985979",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/cephyr/users/aeerik/Alvis/base/run.py",
+    "codePathLocal": "run.py",
+    "codePath": "run.py",
+    "git": {
+        "remote": "https://github.com/aeerik/base.git",
+        "commit": "4deb7a7b7c3cf2ff6dc6702c27659da1968a94e1"
+    },
+    "email": "erik.willem.aerts@gmail.com",
+    "root": "/cephyr/users/aeerik/Alvis/base",
+    "host": "alvis1-13",
+    "username": "aeerik",
+    "executable": "/opt/conda/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 3.877406250000002,
+        "min": 3900.0,
+        "max": 3900.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.73,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.576,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.661,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.9,
+            "min": 3900.0,
+            "max": 3900.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 0.015625,
+            "used": 1.1444091796875e-05
+        }
+    },
+    "gpu": "Tesla V100-SXM2-32GB",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        }
+    ],
+    "memory": {
+        "total": 754.0696029663086
+    }
+}

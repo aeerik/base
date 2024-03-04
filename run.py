@@ -104,17 +104,17 @@ print(f"Datasets has been created with {len(train_set)} samples in the training 
 print(f"Creating model...")
 if load_model:
     savepath = ""
-    model = model_loader(savepath, vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, device)
+    model = model_loader(savepath, vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, device).to(device)
     if mode_ft:
         model.finetune_unfreezeing()
     else:
         model.pretrain_freezing()
 else:
     if mode_ft:
-        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device)
+        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device).to(device)
         model.finetune_unfreezeing()
     else:
-        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device)
+        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device).to(device)
         model.pretrain_freezing()
 print(f"Model successfully loaded")
 print(f"---------------------------------------------------------")

@@ -1,0 +1,15 @@
+
+Epoch 1/100
+Traceback (most recent call last):
+  File "/cephyr/users/aeerik/Alvis/base/run.py", line 127, in <module>
+    results = trainer()
+              ^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 255, in __call__
+    val_results = self.evaluate(self.val_loader)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 390, in evaluate
+    total_correct += (row == list_AB_predictions[i]).sum().item()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+Epoch completed in 0.4 min
+Evaluating on validation set...

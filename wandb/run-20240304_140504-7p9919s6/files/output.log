@@ -1,0 +1,19 @@
+
+Epoch 1/100
+Traceback (most recent call last):
+  File "/cephyr/users/aeerik/Alvis/base/run.py", line 127, in <module>
+    results = trainer()
+              ^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 248, in __call__
+    avg_epoch_loss_geno, avg_epoch_loss_pheno = self.train(self.current_epoch)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 332, in train
+    ab_loss = custom_loss(prediction, target.float())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/loss_functions.py", line 4, in custom_loss
+    loss = F.binary_cross_entropy_with_logits(logits, targets, reduction='none')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/functional.py", line 3199, in binary_cross_entropy_with_logits
+    return torch.binary_cross_entropy_with_logits(input, target, weight, pos_weight, reduction_enum)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

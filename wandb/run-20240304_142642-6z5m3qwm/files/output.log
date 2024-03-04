@@ -1,0 +1,15 @@
+
+Epoch 1/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Traceback (most recent call last):
+  File "/cephyr/users/aeerik/Alvis/base/run.py", line 127, in <module>
+    results = trainer()
+              ^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 255, in __call__
+    val_results = self.evaluate(self.val_loader)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 360, in evaluate
+    result_tensor = torch.full((81,), -1, device=self.device)  # Create tensor filled with -1 values
+                                                 ^^^^^^^^^^^
+AttributeError: 'BertTrainer_ft' object has no attribute 'device'

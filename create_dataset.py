@@ -60,7 +60,7 @@ class NCBIDataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.df.iloc[idx]
-        input = torch.Tensor(item[self.MASKED_INDICES_COLUMN],device=device).long()
+        input = torch.tensor(item[self.MASKED_INDICES_COLUMN],device=device).long()
         token_mask  = torch.tensor(item[self.TARGET_COLUMN], device=device).long()
         attention_mask = (input == self.vocab_geno[self.PAD]).unsqueeze(0)
         
