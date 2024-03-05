@@ -1,0 +1,127 @@
+
+Epoch 1/100
+Epoch completed in 0.8 min
+Evaluating on validation set...
+Elapsed time: 00:00:56
+Epoch 2/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:01:30
+Epoch 3/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:02:05
+Epoch 4/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:02:39
+Epoch 5/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:03:13
+Epoch 6/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:03:47
+Epoch 7/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:04:21
+Epoch 8/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:04:55
+Epoch 9/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:05:29
+Epoch 10/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:06:03
+Epoch 11/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:06:37
+Epoch 12/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:07:11
+Epoch 13/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:07:45
+Epoch 14/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:08:19
+Epoch 15/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:08:53
+Epoch 16/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:09:27
+Epoch 17/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:10:00
+Epoch 18/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:10:34
+Epoch 19/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:11:08
+Epoch 20/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:11:42
+Epoch 21/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:12:16
+Traceback (most recent call last):
+  File "/cephyr/users/aeerik/Alvis/base/run.py", line 127, in <module>
+    results = trainer()
+              ^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/trainer.py", line 245, in __call__
+    self.train_set.prepare_dataset()
+  File "/cephyr/users/aeerik/Alvis/base/create_dataset.py", line 132, in prepare_dataset
+    indices_masked = [self.vocab_geno.lookup_indices(masked_seq) for masked_seq in masked_sequences]
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cephyr/users/aeerik/Alvis/base/create_dataset.py", line 132, in <listcomp>
+    indices_masked = [self.vocab_geno.lookup_indices(masked_seq) for masked_seq in masked_sequences]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torchtext/vocab/vocab.py", line 142, in lookup_indices
+    return self.vocab.lookup_indices(tokens)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Token Botswana not found and default index is not set
+Exception raised from __getitem__ at /__w/_temp/conda_environment_7975119753/conda-bld/torchtext_1708474412268/work/torchtext/csrc/vocab.cpp:43 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x57 (0x1514306f6d87 in /opt/conda/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x64 (0x1514306a775f in /opt/conda/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: torchtext::Vocab::__getitem__(c10::basic_string_view<char> const&) const + 0x384 (0x1513ddee18b4 in /opt/conda/lib/python3.11/site-packages/torchtext/lib/libtorchtext.so)
+frame #3: <unknown function> + 0x1df98 (0x1513dddbcf98 in /opt/conda/lib/python3.11/site-packages/torchtext/_torchtext.so)
+frame #4: <unknown function> + 0x3dee7 (0x1513ddddcee7 in /opt/conda/lib/python3.11/site-packages/torchtext/_torchtext.so)
+frame #5: /opt/conda/bin/python() [0x525f07]
+frame #6: _PyObject_MakeTpCall + 0x254 (0x502d54 in /opt/conda/bin/python)
+frame #7: _PyEval_EvalFrameDefault + 0x755 (0x50f025 in /opt/conda/bin/python)
+frame #8: _PyFunction_Vectorcall + 0x173 (0x535103 in /opt/conda/bin/python)
+frame #9: _PyObject_FastCallDictTstate + 0x65 (0x5063a5 in /opt/conda/bin/python)
+frame #10: _PyObject_Call_Prepend + 0x66 (0x53cf46 in /opt/conda/bin/python)
+frame #11: /opt/conda/bin/python() [0x60d273]
+frame #12: _PyObject_MakeTpCall + 0x254 (0x502d54 in /opt/conda/bin/python)
+frame #13: _PyEval_EvalFrameDefault + 0x755 (0x50f025 in /opt/conda/bin/python)
+frame #14: /opt/conda/bin/python() [0x5c82ce]
+frame #15: PyEval_EvalCode + 0x9f (0x5c79cf in /opt/conda/bin/python)
+frame #16: /opt/conda/bin/python() [0x5e8807]
+frame #17: /opt/conda/bin/python() [0x5e4e40]
+frame #18: /opt/conda/bin/python() [0x5f9132]
+frame #19: _PyRun_SimpleFileObject + 0x19f (0x5f871f in /opt/conda/bin/python)
+frame #20: _PyRun_AnyFileObject + 0x43 (0x5f8473 in /opt/conda/bin/python)
+frame #21: Py_RunMain + 0x2ee (0x5f2fee in /opt/conda/bin/python)
+frame #22: Py_BytesMain + 0x39 (0x5b6e19 in /opt/conda/bin/python)
+frame #23: __libc_start_main + 0xea (0x15149285fd0a in /lib/x86_64-linux-gnu/libc.so.6)
+frame #24: /opt/conda/bin/python() [0x5b6c6f]
