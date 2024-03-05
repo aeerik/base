@@ -13,7 +13,7 @@ from loss_functions import custom_loss
 class BertTrainer_pt:
     def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
         
-        random_seed = 23
+        random_seed = 42
         np.random.seed(random_seed)
         torch.manual_seed(random_seed)
         torch.cuda.manual_seed(random_seed)
@@ -200,7 +200,7 @@ class BertTrainer_pt:
 class BertTrainer_ft:
     def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
         
-        random_seed = 23
+        random_seed = 42
         np.random.seed(random_seed)
         torch.manual_seed(random_seed)
         torch.cuda.manual_seed(random_seed)

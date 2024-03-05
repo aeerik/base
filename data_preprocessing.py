@@ -116,7 +116,6 @@ def data_original(threshold_year,data_path, ab_path):
         {'United Kingdom': 'UK', 'United Arab Emirates': 'UAE', 'Democratic Republic of the Congo': 'DRC',
          'Republic of the Congo': 'DRC', 'Czechia': 'Czech Republic', 'France and Algeria': 'France'})
     
-    NCBI = NCBI[NCBI['AST_phenotypes'].isna()]
     NCBI = NCBI.drop('AST_phenotypes', axis=1)
 
     NCBI.fillna("[PAD]", inplace=True)
