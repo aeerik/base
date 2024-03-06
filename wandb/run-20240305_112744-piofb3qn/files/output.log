@@ -1,0 +1,182 @@
+
+Epoch 1/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:00:37
+Epoch 2/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:01:10
+Epoch 3/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:01:43
+Epoch 4/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:02:17
+Epoch 5/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:02:50
+Epoch 6/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:03:23
+Epoch 7/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:03:56
+Epoch 8/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:04:29
+Epoch 9/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:05:03
+Epoch 10/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:05:36
+Epoch 11/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:06:09
+Epoch 12/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:06:43
+Epoch 13/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:07:17
+Epoch 14/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:07:50
+Epoch 15/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:08:24
+Epoch 16/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:08:57
+Epoch 17/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:09:31
+Epoch 18/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:10:04
+Epoch 19/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:10:37
+Epoch 20/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:11:10
+Epoch 21/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:11:43
+Epoch 22/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:12:16
+Epoch 23/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:12:49
+Epoch 24/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:13:22
+Epoch 25/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:13:55
+Epoch 26/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:14:28
+Epoch 27/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:15:02
+Epoch 28/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:15:38
+Epoch 29/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:16:13
+Epoch 30/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:16:48
+Epoch 31/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:17:22
+Epoch 32/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:18:03
+Epoch 33/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:18:44
+Epoch 34/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:19:25
+Epoch 35/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:20:06
+Epoch 36/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:20:47
+Epoch 37/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:21:28
+Epoch 38/100
+Epoch completed in 0.5 min
+Evaluating on validation set...
+Elapsed time: 00:22:09
+Epoch 39/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:22:43
+Epoch 40/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:23:16
+Epoch 41/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:23:49
+Epoch 42/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:24:22
+Epoch 43/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:24:56
+Epoch 44/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:25:28
+Epoch 45/100
+Epoch completed in 0.4 min
+Evaluating on validation set...
+Elapsed time: 00:26:02
+Training interrupted at epoch: 45
