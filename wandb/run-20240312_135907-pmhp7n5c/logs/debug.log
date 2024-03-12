@@ -26,3 +26,10 @@ config: {'epochs': 100, 'batch_size': 32, 'num_heads': 8, 'num_encoders': 12, 'e
 2024-03-12 13:59:15,414 INFO    MainThread:19683 [wandb_run.py:_redirect():2186] Redirects installed.
 2024-03-12 13:59:15,415 INFO    MainThread:19683 [wandb_init.py:init():847] run started, returning control to user process
 2024-03-12 13:59:15,415 INFO    MainThread:19683 [wandb_watch.py:watch():51] Watching
+2024-03-12 14:52:12,953 INFO    MainThread:19683 [wandb_run.py:_finish():1970] finishing run strompfel/Model_Complexity_NewLR/pmhp7n5c
+2024-03-12 14:52:12,954 INFO    MainThread:19683 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-03-12 14:52:12,954 INFO    MainThread:19683 [wandb_run.py:_restore():2193] restore
+2024-03-12 14:52:12,954 INFO    MainThread:19683 [wandb_run.py:_restore():2199] restore done
+2024-03-12 14:52:23,011 INFO    MainThread:19683 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-03-12 14:52:23,033 INFO    MainThread:19683 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-03-12 14:52:23,037 INFO    MainThread:19683 [wandb_run.py:_footer_sync_info():3825] logging synced files

@@ -339,3 +339,64 @@ Epoch 85/100
 Epoch completed in 0.3 min
 Evaluating on validation set...
 Elapsed time: 00:36:42
+Epoch 86/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:37:08
+Epoch 87/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:37:34
+Epoch 88/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:38:00
+Epoch 89/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:38:26
+Epoch 90/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:38:51
+Epoch 91/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:39:17
+Epoch 92/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:39:43
+Epoch 93/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:40:09
+Epoch 94/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:40:35
+Epoch 95/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:41:01
+Epoch 96/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:41:27
+Epoch 97/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:41:54
+Epoch 98/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:42:21
+Epoch 99/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:42:49
+Epoch 100/100
+Epoch completed in 0.3 min
+Evaluating on validation set...
+Elapsed time: 00:43:16
+-=Training completed=-

@@ -1,0 +1,55 @@
+wandb_version: 1
+
+epochs:
+  desc: null
+  value: 100
+batch_size:
+  desc: null
+  value: 32
+num_heads:
+  desc: null
+  value: 8
+num_encoders:
+  desc: null
+  value: 12
+emb_dim:
+  desc: null
+  value: 256
+ff_dim:
+  desc: null
+  value: 256
+lr:
+  desc: null
+  value: 1.0e-06
+weight_decay:
+  desc: null
+  value: 0.1
+vocab_size:
+  desc: null
+  value: 1213
+num_parameters:
+  desc: null
+  value: 28252349
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.5
+    cli_version: 0.16.3
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1710256664.030303
+    t:
+      1:
+      - 1
+      - 40
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.11.5
+      5: 0.16.3
+      8:
+      - 5
+      13: linux-x86_64
