@@ -41,24 +41,24 @@ export_model = False
 #Hyperparameters
 threshold_year = 1970
 max_length = [51,81]
-mask_prob = 0.7
+mask_prob = 0.75
 drop_prob = 0.2
 reduced_samples = 1000 
 
-dim_emb = 128
-dim_hidden = 128
+dim_emb = 256
+dim_hidden = 256
 attention_heads = 4 
 
-num_encoders = 3
+num_encoders = 12
 
 epochs = 100
 batch_size = 32
-lr = 0.00001
+lr = 0.000001
 stop_patience = 5
 
 # WandB settingsS
-wandb_project = "Model_complexity_HardMask"
-wandb_run_name = "3Encoders_Hard"
+wandb_project = "Model_Complexity_NewLR"
+wandb_run_name = "12EncHardMask"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################
