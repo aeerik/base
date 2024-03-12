@@ -110,6 +110,7 @@ class BERT(nn.Module):
         cls_tokens = embedded[:, 0, :]
         resistance_predictions = torch.cat([network(cls_tokens) for network in self.BC], dim=1)
         token_predictions = self.token_prediction_layer(embedded)
+        #token_predictions = self.softmax(token_predictions)
 
         return token_predictions, resistance_predictions 
     
