@@ -259,6 +259,8 @@ class BertTrainer_ft:
             self.val_losses_geno.append(val_results[0])
             self.val_losses_ab.append(val_results[1])
             self.val_accs.append(val_results[2])
+            self.sensitivity.append(val_results[3])
+            self.specificity.append(val_results[4])
             if self.wandb_mode:
                 self._report_epoch_results()
             criterion = self.stop_early()
@@ -274,7 +276,9 @@ class BertTrainer_ft:
             "ab_train_losses": self.train_losses_ab,
             "geno_val_losses": self.val_losses_geno,
             "ab_val_losses": self.val_losses_ab,
-            "val_accs": self.val_accs
+            "val_accs": self.val_accs,
+            "sensitivity": self.sensitivity,
+            "specificity": self.specificity
         }
         return results
 
@@ -285,6 +289,9 @@ class BertTrainer_ft:
 
         self.val_losses_geno = []
         self.val_losses_ab = []
+
+        self.sensitivity = []
+        self.specificity = []
 
         self.val_accs = []
     
@@ -349,6 +356,10 @@ class BertTrainer_ft:
         epoch_loss_ab = 0
         total_correct = 0
         total_sum = 0
+        TP = 0
+        FN = 0
+        TN = 0
+        FP = 0
   
         with torch.no_grad():
             for i, batch in enumerate(loader):
@@ -393,13 +404,20 @@ class BertTrainer_ft:
                     list_AB_predictions[i] = list_AB_predictions[i].to(self.device)
                     total_correct += (row == list_AB_predictions[i]).sum().item()
                     total_sum += len(row)
+                    TP += torch.sum((list_AB_predictions[i] == 1) & (row == 1)).item()
+                    FN += torch.sum((list_AB_predictions[i] == 0) & (row == 1)).item()
+                    TN += torch.sum((list_AB_predictions[i] == 0) & (row == 0)).item()
+                    FP += torch.sum((list_AB_predictions[i] == 1) & (row == 0)).item()
+
+        sensitivity = TP / (TP + FN) if TP + FN != 0 else 0  # Avoid division by zero
+        specificity = TN / (TN + FP) if TN + FP != 0 else 0
 
         avg_epoch_loss_geno = epoch_loss_geno / self.num_batches_val
         avg_epoch_loss_ab = epoch_loss_ab / self.num_batches_val
 
         accuracy = total_correct / total_sum
 
-        return avg_epoch_loss_geno, avg_epoch_loss_ab, accuracy
+        return avg_epoch_loss_geno, avg_epoch_loss_ab, accuracy, sensitivity, specificity
     
     def _save_model(self, savepath: Path):
         torch.save(self.best_model_state, savepath)
@@ -439,6 +457,9 @@ class BertTrainer_ft:
         self.wandb_run.define_metric("AB_Losses/ab_train_loss", summary="min", step_metric="epoch")
         self.wandb_run.define_metric("AB_Losses/ab_val_loss", summary="min", step_metric="epoch")
 
+        self.wandb_run.define_metric("F1/Sensitivity", summary="min", step_metric="epoch")
+        self.wandb_run.define_metric("F1/Specificity", summary="min", step_metric="epoch")
+
         self.wandb_run.define_metric("Accuracies/val_acc", summary="min", step_metric="epoch")
         
         self.wandb_run.define_metric("Losses/final_val_loss")
@@ -456,6 +477,9 @@ class BertTrainer_ft:
 
             "GenoLosses/geno_val_loss": self.val_losses_geno[-1],
             "ABLosses/ab_val_loss": self.val_losses_ab[-1],
+
+            "F1/Sensitivity": self.sensitivity[-1],
+            "F1/Specificity": self.specificity[-1],
             
             "Accuracies/val_acc": self.val_accs[-1],
         }
