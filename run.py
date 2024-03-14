@@ -34,14 +34,14 @@ data_dir, ab_dir, save_directory = get_paths()
 #Run settings
 limit_data = False #Reduces number of used samples in taining
 wandb_mode = True #Uses wandb for logging
-mode_ft = True  #True for fine tuning, False for pretraining
+mode_ft = False  #True for fine tuning, False for pretraining
 load_model = False #True to load a model from a file
-export_model = False
+export_model = True
 
 #Hyperparameters
 threshold_year = 1970
 max_length = [51,81]
-mask_prob = 0.75
+mask_prob = 0.8
 drop_prob = 0.2
 reduced_samples = 1000 
 
@@ -49,7 +49,7 @@ dim_emb = 256
 dim_hidden = 256
 attention_heads = 4 
 
-num_encoders = 4
+num_encoders = 3
 
 epochs = 100
 batch_size = 32
@@ -57,8 +57,8 @@ lr = 0.000001
 stop_patience = 5
 
 # WandB settingsS
-wandb_project = "Model_Complexity"
-wandb_run_name = "4EncHardMask"
+wandb_project = "Pretrain"
+wandb_run_name = "3EncEmb256Mask0.8"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################
