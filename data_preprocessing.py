@@ -65,7 +65,7 @@ def data_loader(include_pheno, threshold_year,data_path,ab_path):
 
     ab_dir =Path(os.path.abspath(ab_path))
     os.chdir(ab_dir)
-    ab_list = open("antibiotic_list.txt","r")
+    ab_list = open("antibiotic_list_old.txt","r")
     ab_list = ab_list.read().splitlines()
     ab_df = pd.DataFrame(ab_list, columns = ['antibiotic'])
     return NCBI, ab_df
