@@ -371,7 +371,7 @@ class BertTrainer_ft:
                 
                 result_list = []
                 for j in range(len(AB_idx)):
-                    result_tensor = torch.full((self.max_length,), -1, device=self.device)  # Create tensor filled with -1 values
+                    result_tensor = torch.full((self.max_length[1],), -1, device=self.device)  # Create tensor filled with -1 values
                     for idx, value in enumerate(AB_idx[j]):
                         if value != -1:
                             result_tensor[value.item()] = SR_class[j][idx]

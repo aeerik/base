@@ -1,20 +1,20 @@
 amikacin
-amoxicillin-clavulanic acid
+amoxicillinclavulanicacid
 ampicillin
-ampicillin-sulbactam
+ampicillinsulbactam
 azithromycin
 aztreonam
 cefazolin
 cefepime
 cefotaxime
-cefotaxime-clavulanic acid
+cefotaximeclavulanicacid
 cefoxitin
 cefpodoxime
 ceftazidime
-ceftazidime-avibactam
-ceftazidime-clavulanic acid
+ceftazidimeavibactam
+ceftazidimeclavulanicacid
 ceftiofur
-ceftolozane-tazobactam
+ceftolozanetazobactam
 ceftriaxone
 cephalothin
 chloramphenicol
@@ -29,10 +29,10 @@ levofloxacin
 meropenem
 minocycline
 moxifloxacin
-nalidixic acid
+nalidixicacid
 norfloxacin
 oxacillin
-piperacillin-tazobactam
+piperacillintazobactam
 rifampin
 streptomycin
 sulfamethoxazole
@@ -40,5 +40,5 @@ sulfisoxazole
 tetracycline
 tobramycin
 trimethoprim
-trimethoprim-sulfamethoxazole
+trimethoprimsulfamethoxazole
 vancomycin

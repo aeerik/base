@@ -61,7 +61,8 @@ def data_loader(include_pheno, threshold_year,data_path,ab_path):
         NCBI = NCBI[NCBI['AST_phenotypes'].notnull()]
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].str.split(',')
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: list(set([g.strip() for g in x])) if isinstance(x, list) else [])
-        NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: [g for g in x if g.startswith(tuple(ab_list))] if isinstance(x, list) else [])
+        NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(clean_antibiotics)
+        NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: [g for g in x if any(g.split('=')[0] == antibiotic.split('=')[0] for antibiotic in ab_list)] if isinstance(x, list) else [])
         NCBI['AST_phenotypes'] = NCBI['AST_phenotypes'].apply(lambda x: [g for g in x if not g.endswith(tuple(labels))] if isinstance(x, list) else [])
         NCBI = NCBI[NCBI['AST_phenotypes'].apply(lambda x: len(x) > 0)]
     else: 
@@ -71,7 +72,13 @@ def data_loader(include_pheno, threshold_year,data_path,ab_path):
     NCBI.fillna("[PAD]", inplace=True)
 
     return NCBI, ab_df
-
+def clean_antibiotics(lst):
+    cleaned_lst = []
+    for item in lst:
+        antibiotic, status = item.split('=')
+        cleaned_antibiotic = antibiotic.replace('-', '').replace(' ', '') + '=' + status
+        cleaned_lst.append(cleaned_antibiotic)
+    return cleaned_lst
 
 #### Original data for geno_vocab
 
