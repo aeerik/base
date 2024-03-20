@@ -120,9 +120,9 @@ print(f"Model successfully loaded")
 print(f"---------------------------------------------------------")
 print(f"Starting training...")
 if mode_ft:
-    trainer = BertTrainer_ft(model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, wandb_project, wandb_run_name)
+    trainer = BertTrainer_ft(model, max_length, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, wandb_project, wandb_run_name)
 else: 
-    trainer = BertTrainer_pt(model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, wandb_project, wandb_run_name)
+    trainer = BertTrainer_pt(model, max_length, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, wandb_project, wandb_run_name)
 
 results = trainer()
 print(f"---------------------------------------------------------")

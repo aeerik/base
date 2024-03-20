@@ -11,7 +11,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 from loss_functions import custom_loss
 
 class BertTrainer_pt:
-    def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
+    def __init__(self, model, max_length, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
         
         random_seed = 42
         np.random.seed(random_seed)
@@ -20,6 +20,7 @@ class BertTrainer_pt:
         torch.backends.cudnn.deterministic = True
 
         self.model = model
+        self.max_length = max_length
         self.train_set = train_set
         self.train_size = len(train_set)
         self.val_size = len(val_set)
@@ -200,7 +201,7 @@ class BertTrainer_pt:
 
 ##----------------------------------------------------------------------------------------------------------------------------
 class BertTrainer_ft:
-    def __init__(self, model, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
+    def __init__(self, model, max_length, train_set, val_set, epochs, batch_size, lr, device, stop_patience, wandb_mode, project_name, wandb_name):
         
         random_seed = 41
         np.random.seed(random_seed)
@@ -209,10 +210,10 @@ class BertTrainer_ft:
         torch.backends.cudnn.deterministic = True
 
         self.model = model
+        self.max_length = max_length    
         self.train_set = train_set
         self.train_size = len(train_set)
         self.val_size = len(val_set)
-
         self.val_set = val_set
         self.epochs = epochs    
         self.batch_size = batch_size
@@ -259,8 +260,8 @@ class BertTrainer_ft:
             self.val_losses_geno.append(val_results[0])
             self.val_losses_ab.append(val_results[1])
             self.val_accs.append(val_results[2])
-            self.sensitivity.append(val_results[3])
-            self.specificity.append(val_results[4])
+            self.sensitivity = val_results[3]
+            self.specificity = val_results[4]
             if self.wandb_mode:
                 self._report_epoch_results()
             criterion = self.stop_early()
@@ -315,7 +316,7 @@ class BertTrainer_ft:
 
         for i, batch in enumerate(self.train_loader):
             input, token_target, attn_mask, AB_idx, SR_class = batch
-                        
+
             ABinclusion = torch.unique(AB_idx)
             ABinclusion = ABinclusion[ABinclusion != -1]
             ABinclusion = ABinclusion.tolist()
@@ -328,7 +329,7 @@ class BertTrainer_ft:
             
             result_list = []
             for j in range(len(AB_idx)):
-                result_tensor = torch.full((44,), -1) 
+                result_tensor = torch.full((self.max_length[1],), -1) 
                 for idx, value in enumerate(AB_idx[j]):
                     if value != -1:
                         result_tensor[value.item()] = SR_class[j][idx]
@@ -356,10 +357,10 @@ class BertTrainer_ft:
         epoch_loss_ab = 0
         total_correct = 0
         total_sum = 0
-        TP = 0
-        FN = 0
-        TN = 0
-        FP = 0
+        TP = [0 for _ in range(self.max_length[1])]
+        FP = [0 for _ in range(self.max_length[1])]
+        TN = [0 for _ in range(self.max_length[1])]
+        FN = [0 for _ in range(self.max_length[1])]
   
         with torch.no_grad():
             for i, batch in enumerate(loader):
@@ -370,7 +371,7 @@ class BertTrainer_ft:
                 
                 result_list = []
                 for j in range(len(AB_idx)):
-                    result_tensor = torch.full((44,), -1, device=self.device)  # Create tensor filled with -1 values
+                    result_tensor = torch.full((self.max_length,), -1, device=self.device)  # Create tensor filled with -1 values
                     for idx, value in enumerate(AB_idx[j]):
                         if value != -1:
                             result_tensor[value.item()] = SR_class[j][idx]
@@ -404,13 +405,35 @@ class BertTrainer_ft:
                     list_AB_predictions[i] = list_AB_predictions[i].to(self.device)
                     total_correct += (row == list_AB_predictions[i]).sum().item()
                     total_sum += len(row)
-                    TP += torch.sum((list_AB_predictions[i] == 1) & (row == 1)).item()
-                    FN += torch.sum((list_AB_predictions[i] == 0) & (row == 1)).item()
-                    TN += torch.sum((list_AB_predictions[i] == 0) & (row == 0)).item()
-                    FP += torch.sum((list_AB_predictions[i] == 1) & (row == 0)).item()
+                    for j in range(len(row)):
+                        if row[j] == list_AB_predictions[i][j]:
+                            if  list_AB_predictions[i][j] == 1:
+                                Ab = AB_idx[i][j]
+                                TP[Ab] += 1
+                            else:
+                                Ab = AB_idx[i][j]
 
-        sensitivity = TP / (TP + FN) if TP + FN != 0 else 0  # Avoid division by zero
-        specificity = TN / (TN + FP) if TN + FP != 0 else 0
+                                TN[Ab] += 1
+                        else:
+                            if  list_AB_predictions[i][j] == 1:
+                                Ab = AB_idx[i][j]
+                                FP[Ab] += 1
+                            else:
+                                Ab = AB_idx[i][j]
+                                FN[Ab] += 1
+                specificity = []
+                sensitivity = []
+                for i in range(len(TP)):
+                    TP_i = TP[i]
+                    FP_i = FP[i]
+                    TN_i = TN[i]
+                    FN_i = FN[i]
+                    
+                    specificity_i = TN_i / (TN_i + FP_i) if (TN_i + FP_i) != 0 else 0
+                    sensitivity_i = TP_i / (TP_i + FN_i) if (TP_i + FN_i) != 0 else 0
+                    
+                    specificity.append(specificity_i)
+                    sensitivity.append(sensitivity_i)
 
         avg_epoch_loss_geno = epoch_loss_geno / self.num_batches_val
         avg_epoch_loss_ab = epoch_loss_ab / self.num_batches_val
@@ -457,9 +480,6 @@ class BertTrainer_ft:
         self.wandb_run.define_metric("AB_Losses/ab_train_loss", summary="min", step_metric="epoch")
         self.wandb_run.define_metric("AB_Losses/ab_val_loss", summary="min", step_metric="epoch")
 
-        self.wandb_run.define_metric("F1/Sensitivity", summary="min", step_metric="epoch")
-        self.wandb_run.define_metric("F1/Specificity", summary="min", step_metric="epoch")
-
         self.wandb_run.define_metric("Accuracies/val_acc", summary="min", step_metric="epoch")
         
         self.wandb_run.define_metric("Losses/final_val_loss")
@@ -477,9 +497,6 @@ class BertTrainer_ft:
 
             "GenoLosses/geno_val_loss": self.val_losses_geno[-1],
             "ABLosses/ab_val_loss": self.val_losses_ab[-1],
-
-            "F1/Sensitivity": self.sensitivity[-1],
-            "F1/Specificity": self.specificity[-1],
             
             "Accuracies/val_acc": self.val_accs[-1],
         }
