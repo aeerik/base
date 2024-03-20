@@ -315,7 +315,7 @@ class BertTrainer_ft:
 
         for i, batch in enumerate(self.train_loader):
             input, token_target, attn_mask, AB_idx, SR_class = batch
-            
+                        
             ABinclusion = torch.unique(AB_idx)
             ABinclusion = ABinclusion[ABinclusion != -1]
             ABinclusion = ABinclusion.tolist()
@@ -328,7 +328,7 @@ class BertTrainer_ft:
             
             result_list = []
             for j in range(len(AB_idx)):
-                result_tensor = torch.full((81,), -1) 
+                result_tensor = torch.full((44,), -1) 
                 for idx, value in enumerate(AB_idx[j]):
                     if value != -1:
                         result_tensor[value.item()] = SR_class[j][idx]
@@ -370,7 +370,7 @@ class BertTrainer_ft:
                 
                 result_list = []
                 for j in range(len(AB_idx)):
-                    result_tensor = torch.full((81,), -1, device=self.device)  # Create tensor filled with -1 values
+                    result_tensor = torch.full((44,), -1, device=self.device)  # Create tensor filled with -1 values
                     for idx, value in enumerate(AB_idx[j]):
                         if value != -1:
                             result_tensor[value.item()] = SR_class[j][idx]
