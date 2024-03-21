@@ -128,7 +128,7 @@ results = trainer()
 print(f"---------------------------------------------------------")
 if export_model:
     print(f"Exporting model...")
-    export_model_label = str(today)+"model"+"Enc"+str(num_encoders)+"Emb"+str(dim_emb)+"Mask"+str(mask_prob)+".pt"
+    export_model_label = str(today)+"model"+"Enc"+str(num_encoders)+"Emb"+str(dim_emb)+"Mask"+str(mask_prob)+"Mode"+str(mode_ft)+".pt"
     trainer._save_model(save_directory+"/"+export_model_label)
 print("Exporting results...")
 export_results_label = str(today)+"run"+"Mode"+str(mode_ft)+".pkl"
