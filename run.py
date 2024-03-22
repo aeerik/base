@@ -134,11 +134,13 @@ print("Exporting results...")
 export_results_label = str(today)+"run"+"Mode"+str(mode_ft)+".pkl"
 export_results(results, save_directory+"/"+export_results_label)
 print(f"---------------------------------------------------------")
+
 print(f"F1 printing:")
 print("Sensitivity:")
-print(results[6])
+print(results['sensitivity'])
 print("Specificity:")
-print(results[7])
+print(results['specificity'])
+
 
 
 
