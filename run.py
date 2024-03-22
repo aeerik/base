@@ -41,7 +41,7 @@ export_model = True
 #Hyperparameters
 threshold_year = 1970
 max_length = [51,44]
-mask_prob = 0.75
+mask_prob = 0.25
 drop_prob = 0.2
 reduced_samples = 1000 
 
@@ -58,7 +58,7 @@ stop_patience = 5
 
 # WandB settingsS
 wandb_project = "Pretrain_F1"
-wandb_run_name = "12EncEmb256HardMask"
+wandb_run_name = "12EncEmb256EasyMask"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################
