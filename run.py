@@ -34,14 +34,14 @@ data_dir, ab_dir, save_directory = get_paths()
 #Run settings
 limit_data = False #Reduces number of used samples in taining
 wandb_mode = True #Uses wandb for logging
-mode_ft = False  #True for fine tuning, False for pretraining
+mode_ft = True  #True for fine tuning, False for pretraining
 load_model = False #True to load a model from a file
 export_model = True
 
 #Hyperparameters
 threshold_year = 1970
-max_length = [51,81]
-mask_prob = 0.8
+max_length = [51,44]
+mask_prob = 0.75
 drop_prob = 0.2
 reduced_samples = 1000 
 
@@ -49,7 +49,7 @@ dim_emb = 256
 dim_hidden = 256
 attention_heads = 4 
 
-num_encoders = 3
+num_encoders = 12
 
 epochs = 100
 batch_size = 32
@@ -57,8 +57,8 @@ lr = 0.000001
 stop_patience = 5
 
 # WandB settingsS
-wandb_project = "Pretrain"
-wandb_run_name = "3EncEmb256Mask0.8"
+wandb_project = "Pretrain_F1"
+wandb_run_name = "12EncEmb256HardMask"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################
@@ -133,4 +133,12 @@ if export_model:
 print("Exporting results...")
 export_results_label = str(today)+"run"+"Mode"+str(mode_ft)+".pkl"
 export_results(results, save_directory+"/"+export_results_label)
+print(f"---------------------------------------------------------")
+print(f"F1 printing:")
+print("Sensitivity:")
+print(results[6])
+print("Specificity:")
+print(results[7])
+
+
 
