@@ -112,7 +112,7 @@ class BERT(nn.Module):
         token_predictions = self.token_prediction_layer(embedded)
         #token_predictions = self.softmax(token_predictions)
 
-        return token_predictions, resistance_predictions 
+        return token_predictions, resistance_predictions, cls_tokens 
     
     def exclude_networks(self, inclusion_list: list):
         indices_to_freeze = [i for i in range(len(self.BC)) if i not in inclusion_list]
