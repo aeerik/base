@@ -85,14 +85,15 @@ class resEncoder(nn.Module):
 
 class BERT(nn.Module):
 
-    def __init__(self, vocab_size, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab, device):
+    def __init__(self, vocab_size, dim_embedding, dim_hidden, attention_heads, num_encoders, dropout_prob, num_ab, cls_mode, device):
         super(BERT, self).__init__()
         self.attention_heads = attention_heads
         self.vocab_size = vocab_size
         self.dim_embedding = dim_embedding
         self.dim_hidden = dim_hidden    
         self.num_encoders = num_encoders
-        self.dropout_prob = dropout_prob  
+        self.dropout_prob = dropout_prob 
+        self.cls_mode = cls_mode 
 
         self.embedding = JointEmbedding(self.dim_embedding, self.vocab_size, self.dropout_prob)
         self.encoders = nn.ModuleList([resEncoder(self.dim_embedding, self.attention_heads, self.dropout_prob) for _ in range(self.num_encoders)])
@@ -106,13 +107,17 @@ class BERT(nn.Module):
         embedded = self.embedding(input_tensor)
         for layer in self.encoders:
             embedded = layer(embedded, attention_mask)
-        
-        cls_tokens = embedded[:, 0, :]
-        resistance_predictions = torch.cat([network(cls_tokens) for network in self.BC], dim=1)
-        token_predictions = self.token_prediction_layer(embedded)
-        #token_predictions = self.softmax(token_predictions)
 
-        return token_predictions, resistance_predictions, cls_tokens 
+        if self.cls_mode:     
+            cls_tokens = embedded[ 0, :]
+            return cls_tokens
+        else:
+            cls_tokens = embedded[:, 0, :]
+            resistance_predictions = torch.cat([network(cls_tokens) for network in self.BC], dim=1)
+        
+            token_predictions = self.token_prediction_layer(embedded)
+
+            return token_predictions, resistance_predictions, cls_tokens 
     
     def exclude_networks(self, inclusion_list: list):
         indices_to_freeze = [i for i in range(len(self.BC)) if i not in inclusion_list]
