@@ -38,6 +38,8 @@ mode_ft = True  #True for fine tuning, False for pretraining
 load_model = False #True to load a model from a file
 export_model = True
 
+cls_mode=False
+
 #Hyperparameters
 threshold_year = 1970
 max_length = [51,44]
@@ -45,11 +47,11 @@ mask_prob = 0.625
 drop_prob = 0.2
 reduced_samples = 1000 
 
-dim_emb = 1024
-dim_hidden = 1024
+dim_emb = 512
+dim_hidden = 512
 attention_heads = 4 
 
-num_encoders = 6
+num_encoders = 5
 
 epochs = 100
 batch_size = 32
@@ -57,8 +59,8 @@ lr = 0.0000001
 stop_patience = 7
 
 # WandB settingsS
-wandb_project = "Embedding_F1"
-wandb_run_name = "6EncEmb1024"
+wandb_project = "CLS_FirstRun"
+wandb_run_name = "5EncEmb512l"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################
@@ -104,17 +106,17 @@ print(f"Datasets has been created with {len(train_set)} samples in the training 
 print(f"Creating model...")
 if load_model:
     savepath = ""
-    model = model_loader(savepath, vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, device).to(device)
+    model = model_loader(savepath, vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, cls_mode, device).to(device)
     if mode_ft:
         model.finetune_unfreezeing()
     else:
         model.pretrain_freezing()
 else:
     if mode_ft:
-        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device).to(device)
+        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), cls_mode=cls_mode, device=device).to(device)
         model.finetune_unfreezeing()
     else:
-        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device).to(device)
+        model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno),cls_mode=cls_mode, device=device).to(device)
         model.pretrain_freezing()
 print(f"Model successfully loaded")
 print(f"---------------------------------------------------------")
