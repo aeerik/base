@@ -47,20 +47,20 @@ mask_prob = 0.625
 drop_prob = 0.2
 reduced_samples = 1000 
 
-dim_emb = 32
-dim_hidden = 32
+dim_emb = 512
+dim_hidden = 512
 attention_heads = 4 
 
-num_encoders = 1
+num_encoders = 5
 
 epochs = 100
 batch_size = 32
-lr = 0.000001
+lr = 0.0000001
 stop_patience = 7
 
 # WandB settingsS
 wandb_project = "CLS_FirstRun"
-wandb_run_name = "1EncEmb32"
+wandb_run_name = "5EncEmb512l"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################

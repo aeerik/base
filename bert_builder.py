@@ -117,7 +117,7 @@ class BERT(nn.Module):
         
             token_predictions = self.token_prediction_layer(embedded)
 
-            return token_predictions, resistance_predictions, cls_tokens 
+            return token_predictions, resistance_predictions 
     
     def exclude_networks(self, inclusion_list: list):
         indices_to_freeze = [i for i in range(len(self.BC)) if i not in inclusion_list]
