@@ -42,6 +42,10 @@ def get_paths():
 
 def model_loader(savepath: Path,vocabulary_geno, vocabulary_pheno, dim_emb, dim_hidden, num_encoders, drop_prob, device):
     print(f"Loading model from {savepath}")
-    model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno), device=device)
-    model.load_state_dict(torch.load(savepath))
+    model = BERT(vocab_size=len(vocabulary_geno), dim_embedding = dim_emb, dim_hidden=dim_hidden, attention_heads=8, num_encoders=num_encoders, dropout_prob=drop_prob, num_ab=len(vocabulary_pheno),cls_mode=True, device=device)
+    if torch.cuda.is_available():
+        model.load_state_dict(torch.load(savepath))
+    else:
+        model.load_state_dict(torch.load(savepath, map_location=torch.device('cpu')))
+    
     return model
