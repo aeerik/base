@@ -53,7 +53,7 @@ num_encoders = 6
 
 epochs = 100
 batch_size = 32
-lr = 0.000001
+lr = 0.0000001
 stop_patience = 7
 
 # WandB settingsS
