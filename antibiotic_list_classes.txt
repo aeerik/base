@@ -7,7 +7,7 @@ aztreonam=Monobactams
 cefazolin=Cephalosporins
 cefepime=Cephalosporins
 cefotaxime=Cephalosporins
-cefotaximeclavulanicacid
+cefotaximeclavulanicacid=CephalosporinCombinations
 cefoxitin=Cephalosporins
 cefpodoxime=Cephalosporins
 ceftazidime=Cephalosporins
