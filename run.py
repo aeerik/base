@@ -34,7 +34,7 @@ data_dir, ab_dir, save_directory = get_paths()
 #Run settings
 limit_data = False #Reduces number of used samples in taining
 wandb_mode = True #Uses wandb for logging
-mode_ft = True  #True for fine tuning, False for pretraining
+mode_ft = False  #True for fine tuning, False for pretraining
 load_model = False #True to load a model from a file
 export_model = True
 
@@ -43,24 +43,24 @@ cls_mode=False
 #Hyperparameters
 threshold_year = 1970
 max_length = [51,44]
-mask_prob = 0.625
+mask_prob = 0.6
 drop_prob = 0.2
 reduced_samples = 1000 
 
-dim_emb = 512
-dim_hidden = 512
+dim_emb = 128
+dim_hidden = 128
 attention_heads = 4 
 
-num_encoders = 5
+num_encoders = 1
 
 epochs = 100
 batch_size = 32
-lr = 0.0000001
+lr = 0.000001
 stop_patience = 7
 
 # WandB settingsS
-wandb_project = "CLS_FirstRun"
-wandb_run_name = "5EncEmb512l"
+wandb_project = "CLSExperiment"
+wandb_run_name = "1Enc128Emb0.3Pretraining"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ####################################################
