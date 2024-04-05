@@ -118,14 +118,11 @@ class BertTrainer_pt:
             self.optimizer.zero_grad() 
 
             token_predictions, resistance_predictions = self.model(input, attn_mask) 
-            print(token_predictions)
             loss = self.criterion(token_predictions.transpose(-1, -2), token_target) 
             epoch_loss += loss.item() 
-            print(epoch_loss)
             reporting_loss += loss.item()
             printing_loss += loss.item()
             
-
             loss.backward() 
             self.optimizer.step() 
             
