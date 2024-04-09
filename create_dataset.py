@@ -29,8 +29,9 @@ class NCBIDataset(Dataset):
                  include_pheno:bool,
                  random_state: int = 23,
                  ):
-        
+
         self.random_state = random_state
+        self.rng = np.random.default_rng(self.random_state)
         np.random.seed(self.random_state)
 
         CLS = '[CLS]'
@@ -81,15 +82,26 @@ class NCBIDataset(Dataset):
             seq_len = len(geno_seq)
             masking_index = np.random.rand(seq_len) < self.mask_prob   
             target_indices = np.array([-1]*seq_len)
-            indices = masking_index.nonzero()[0]
-            target_indices[indices] = self.vocab_geno.lookup_indices([geno_seq[i] for i in indices])
-            for i in indices:
-                r = np.random.rand()
+
+            if not masking_index.any():
+                # if no tokens are masked, mask one random token
+                idx = self.rng.integers(seq_len)
+                target_indices[idx] = self.vocab[geno_seq[idx]]
+                r = self.rng.random()
                 if r < 0.8:
-                    geno_seq[i] = self.MASK
-                elif r > 0.9:
-                    geno_seq[i] = self.vocab_geno.lookup_token(np.random.randint(self.vocab_size_geno))
-            geno_seq = seq_starts[i] + geno_seq
+                    geno_seq[idx] = self.MASK
+                elif r < 0.9:
+                    geno_seq[idx] = self.vocab.lookup_token(self.rng.integers(self.vocab_size))
+            else:
+                indices = masking_index.nonzero()[0]
+                target_indices[indices] = self.vocab_geno.lookup_indices([geno_seq[i] for i in indices])
+                for i in indices:
+                    r = np.random.rand()
+                    if r < 0.8:
+                        geno_seq[i] = self.MASK
+                    elif r > 0.9:
+                        geno_seq[i] = self.vocab_geno.lookup_token(np.random.randint(self.vocab_size_geno))
+                geno_seq = seq_starts[i] + geno_seq
             target_indices = [-1]*3 + target_indices.tolist() 
             masked_sequences.append(geno_seq)
             target_indices_list.append(target_indices)

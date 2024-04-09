@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader
 import copy
 import wandb
 import numpy as np
+from itertools import chain
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 from loss_functions import custom_loss
@@ -226,7 +227,14 @@ class BertTrainer_ft:
         self.wandb_mode = wandb_mode
         self.project_name = project_name
         self.wandb_name = wandb_name
-        self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+
+        self.optimizer = torch.optim.AdamW(
+            [
+                {'params':self.model.parameters() },
+                {'params': chain(*[network.parameters() for network in self.model.BC])}
+                ]
+            , lr=self.lr, weight_decay=self.weight_decay)
+
         self.token_criterion = nn.CrossEntropyLoss(ignore_index = -1).to(self.device)
         self.ab_criterion = nn.BCEWithLogitsLoss().to(self.device)
 
