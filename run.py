@@ -42,7 +42,7 @@ cls_mode=False
 
 #Hyperparameters
 threshold_year = 1970
-max_length = [51,44]
+max_length = [51,24]
 mask_prob = 0.6
 drop_prob = 0.2
 reduced_samples = 1000 
@@ -63,6 +63,7 @@ wandb_project = "CLSExperiment"
 wandb_run_name = "1Enc128Emb0.3Pretraining"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+cls_mode = False
 ####################################################
 
 #set mode for run, True for fine tuning, False for pretraining 

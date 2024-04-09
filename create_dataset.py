@@ -86,12 +86,12 @@ class NCBIDataset(Dataset):
             if not masking_index.any():
                 # if no tokens are masked, mask one random token
                 idx = self.rng.integers(seq_len)
-                target_indices[idx] = self.vocab[geno_seq[idx]]
+                target_indices[idx] = self.vocab_geno[geno_seq[idx]]
                 r = self.rng.random()
                 if r < 0.8:
                     geno_seq[idx] = self.MASK
                 elif r < 0.9:
-                    geno_seq[idx] = self.vocab.lookup_token(self.rng.integers(self.vocab_size))
+                    geno_seq[idx] = self.vocab_geno.lookup_token(self.rng.integers(self.vocab_size_geno))
             else:
                 indices = masking_index.nonzero()[0]
                 target_indices[indices] = self.vocab_geno.lookup_indices([geno_seq[i] for i in indices])
