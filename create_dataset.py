@@ -101,7 +101,7 @@ class NCBIDataset(Dataset):
                         geno_seq[i] = self.MASK
                     elif r > 0.9:
                         geno_seq[i] = self.vocab_geno.lookup_token(np.random.randint(self.vocab_size_geno))
-                geno_seq = seq_starts[i] + geno_seq
+            geno_seq = seq_starts[i] + geno_seq
             target_indices = [-1]*3 + target_indices.tolist() 
             masked_sequences.append(geno_seq)
             target_indices_list.append(target_indices)
