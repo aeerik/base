@@ -34,7 +34,7 @@ data_dir, ab_dir, save_directory = get_paths()
 #Run settings
 limit_data = False #Reduces number of used samples in taining
 wandb_mode = True #Uses wandb for logging
-mode_ft = False  #True for fine tuning, False for pretraining
+mode_ft = True  #True for fine tuning, False for pretraining
 load_model = False #True to load a model from a file
 export_model = True
 
@@ -43,15 +43,15 @@ cls_mode=False
 #Hyperparameters
 threshold_year = 1970
 max_length = [51,24]
-mask_prob = 0.6
+mask_prob = 0.25
 drop_prob = 0.2
 reduced_samples = 1000 
 
-dim_emb = 128
-dim_hidden = 128
+dim_emb = 512
+dim_hidden = 512
 attention_heads = 4 
 
-num_encoders = 1
+num_encoders = 2
 
 epochs = 100
 batch_size = 32
@@ -59,8 +59,8 @@ lr = 0.000001
 stop_patience = 7
 
 # WandB settingsS
-wandb_project = "CLSExperiment"
-wandb_run_name = "1Enc128Emb0.3Pretraining"
+wandb_project = "Encoders_F1"
+wandb_run_name = "2EncEasy"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 cls_mode = False
@@ -131,7 +131,7 @@ results = trainer()
 print(f"---------------------------------------------------------")
 if export_model:
     print(f"Exporting model...")
-    export_model_label = str(today)+"model"+"Enc"+str(num_encoders)+"Emb"+str(dim_emb)+"Mask"+str(mask_prob)+"Mode"+str(mode_ft)+".pt"
+    export_model_label = str(today)+"model"+"Enc"+str(num_encoders)+"Emb"+str(dim_emb)+"Mask"+str(mask_prob)+"Mode"+str(mode_ft)+"EncoderExperiment.pt"
     trainer._save_model(save_directory+"/"+export_model_label)
 print("Exporting results...")
 export_results_label = str(today)+"run"+"Mode"+str(mode_ft)+".pkl"
