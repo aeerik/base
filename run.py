@@ -51,7 +51,7 @@ dim_emb = 512
 dim_hidden = 512
 attention_heads = 4 
 
-num_encoders = 3
+num_encoders = 12
 
 epochs = 100
 batch_size = 32
@@ -59,8 +59,8 @@ lr = 0.0000001
 stop_patience = 7
 
 # WandB settingsS
-wandb_project = "Encoders_F1"
-wandb_run_name = "3EncHardny"
+wandb_project = "Encoding_F1"
+wandb_run_name = "12EncHardny2"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 cls_mode = False
