@@ -1,4 +1,4 @@
-amoxicillinclavulanicacid=PenicillinCombinations
+amoxicillinclavulanicacid=Penicillins
 ampicillin=Penicillins
 aztreonam=Monobactams
 cefazolin=Cephalosporins
