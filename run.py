@@ -129,13 +129,13 @@ else:
 
 results = trainer()
 print(f"---------------------------------------------------------")
+export_label = str(today)+"model"+"Enc"+str(num_encoders)+"Emb"+str(dim_emb)+"Mask"+str(mask_prob)+"Mode"+str(mode_ft)+"HARDPRETRAIN"
+
 if export_model:
     print(f"Exporting model...")
-    export_model_label = str(today)+"model"+"Enc"+str(num_encoders)+"Emb"+str(dim_emb)+"Mask"+str(mask_prob)+"Mode"+str(mode_ft)+"EncoderExperiment.pt"
-    trainer._save_model(save_directory+"/"+export_model_label)
+    trainer._save_model(save_directory+"/"+export_label+".pt")
 print("Exporting results...")
-export_results_label = str(today)+"run"+"Mode"+str(mode_ft)+".pkl"
-export_results(results, save_directory+"/"+export_results_label)
+export_results(results, save_directory+"/"+export_label+".pkl")
 print(f"---------------------------------------------------------")
 
 print(f"F1 printing:")
@@ -143,6 +143,10 @@ print("Sensitivity:")
 print(results['sensitivity'])
 print("Specificity:")
 print(results['specificity'])
+
+
+
+
 
 
 
